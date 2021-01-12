@@ -2,37 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en" data-default-color-scheme=&#34;dark&#34;>
-<style type="text/css">
-#search { 
-    width: 440px;
-    height: 40px;
-    border:none;    /*取消默认的边框以设置自定义边框*/
-    outline:none;   /*取消浏览器默认的蓝光边框以设置自定义的输入框*/
-    font-size: 16px;        
-    color: rgb(112, 112, 112);
-    margin-left: 10px;
-}
-.searchbar {        /*目的是设置自定义边框，比如圆角与阴影*/
-    border: rgb(218, 218, 218) solid 1px;
-    border-radius: 2em;
-    width: 552px;
-    height: 42px;
-    box-shadow: 0px 0px 5px rgb(212, 212, 212);
-    margin: 0 auto;
-}
 
-.mcp {
-    height: 35px;
-}
-
-.mg {
-    height: 25px;
-    margin-left: 15px;
-}
-#search, .mcp, .mg {
-    vertical-align: middle;
-}
-</style>
 
 
 
@@ -212,17 +182,22 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2021/01/12/hello-world/">Hello World</a>
+        <a href="/2021/01/12/HackTheBox-OpenKeys/">HackTheBox-OpenKeys WriteUp</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/12/hello-world/">
+        <a href="/2021/01/12/HackTheBox-OpenKeys/">
           
           
             
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick
+          
+INT
+nmapIP: 10.10.10.199port:2222/tcp open  ssh     OpenSSH 8.1 (protocol 2.0)port:80OpenKeyS - Retrieve your OpenSSH Keys #maybe keywordOS:FreeBsd
+
+
+Port 80 Enum
+http://10.10.10.199/includes/auth.ph
         </a>
       </p>
 
@@ -230,12 +205,28 @@ Quick
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-12 13:59" pubdate>
+            <time datetime="2021-01-12 21:42" pubdate>
               2021-01-12
             </time>
           </div>
         
         
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/WriteUp/">WriteUp</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Hack-The-Box/">Hack The Box</a>
+            
+              <a href="/tags/CVE-2020-7247/">CVE-2020-7247</a>
+            
+          </div>
         
       </div>
     </article>

