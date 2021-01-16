@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      121 字
+      127 字
     </span>
   
 
@@ -233,11 +233,9 @@
 <li><p>Fill all required details and click on the save button and capture the request in a proxy tool like burp suite.</p>
 </li>
 <li><p>Append the JavaScript payload in the “Email Header” field as mentioned below</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">*&quot;&lt;sc&gt;&lt;svg/onload=alert(454)&gt;&quot;*<br></code></pre></div></td></tr></table></figure></li>
+<li><p>You will observe that the payload successfully got stored and reflected into the response and the malicious JavaScript payload got executed successfully and we are getting a pop-up.</p>
 </li>
-</ol>
-<p><em>“<sc>&lt;svg/onload=alert(454)&gt;”</em></p>
-<ol start="5">
-<li>You will observe that the payload successfully got stored and reflected into the response and the malicious JavaScript payload got executed successfully and we are getting a pop-up.</li>
 </ol>
 
             </div>
