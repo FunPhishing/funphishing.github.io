@@ -23,7 +23,7 @@
   <meta name="description" content="">
   <meta name="author" content="FunPhishing">
   <meta name="keywords" content="">
-  <title>Metasploit Module Program Note - http_version - Fun Phishing</title>
+  <title>Backdoor.Win32.RemoteManipulator.brr Insecure Permissions - Fun Phishing</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -153,9 +153,9 @@
               <div class="full-bg-img">
                 <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
                   <div class="page-header text-center fade-in-up">
-                    <span class="h2 text1" id="subtitle" title="Metasploit Module Program Note - http_version">
+                    <span class="h2 text1" id="subtitle" title="Backdoor.Win32.RemoteManipulator.brr Insecure Permissions">
                       
-                        Metasploit Module Program Note - http_version
+                        Backdoor.Win32.RemoteManipulator.brr Insecure Permissions
                       
                     </span>
         
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-31 21:02" pubdate>
-        January 31, 2021 pm
+      <time datetime="2021-02-05 14:28" pubdate>
+        February 5, 2021 pm
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      439 字
+      131 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      2
        分钟
     </span>
   
@@ -218,11 +218,13 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Metasploit Module Program Note - http_version</h1>
+            <h1 style="display: none">Backdoor.Win32.RemoteManipulator.brr Insecure Permissions</h1>
             
             <div class="markdown-body">
-              <h4 id="Metasploit-Module-Program-Note-http-version"><a href="#Metasploit-Module-Program-Note-http-version" class="headerlink" title="Metasploit Module Program Note - http_version"></a>Metasploit Module Program Note - http_version</h4><p>Note:</p>
-<figure class="highlight ruby"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ruby"><span class="hljs-keyword">require</span> <span class="hljs-string">&#x27;rex/proto/http&#x27;</span> <span class="hljs-comment">#require /opt/metasploit-framework/embedded/framework/lib/ all methods of the http protocol.</span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MetasploitModule</span> &lt; Msf::Auxiliary <span class="hljs-comment">#class defined this module is the auxiliary module </span></span><br><br>  <span class="hljs-comment"># Exploit mixins should be called first</span><br>  <span class="hljs-keyword">include</span> Msf::Exploit::Remote::HttpClient <span class="hljs-comment"># include the /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb all methods of HttpClient(mean http_client)</span><br>  <span class="hljs-keyword">include</span> Msf::Auxiliary::WmapScanServer <span class="hljs-comment">#include /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/wmap_scan_server.rb all methods of WmapScanServer(mean wmap_scan_server)</span><br>  <span class="hljs-comment"># Scanner mixin should be near last</span><br>  <span class="hljs-keyword">include</span> Msf::Auxiliary::Scanner <span class="hljs-comment">#include /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb</span><br><br>  def initialize <span class="hljs-comment">#ruby default constructor function </span><br>    <span class="hljs-keyword">super</span>( <span class="hljs-comment">#like MetasploitModule &lt; Msf::Auxiliary use the super(x)，the x will define variable in the module.</span><br>      <span class="hljs-string">&#x27;Name&#x27;</span>        =&gt; <span class="hljs-string">&#x27;HTTP Version Detection&#x27;</span>, <span class="hljs-comment">#Module name</span><br>      <span class="hljs-string">&#x27;Description&#x27;</span> =&gt; <span class="hljs-string">&#x27;Display version information about each system.&#x27;</span>, <span class="hljs-comment">#Module Description</span><br>      <span class="hljs-string">&#x27;Author&#x27;</span>      =&gt; <span class="hljs-string">&#x27;hdm&#x27;</span>, <span class="hljs-comment">#Module author</span><br>      <span class="hljs-string">&#x27;License&#x27;</span>     =&gt; MSF_LICENSE <span class="hljs-comment">#Module license</span><br>    )<br><br>    register_wmap_options(&#123; <span class="hljs-comment">#setting wmap_option /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/wmap_module.rb</span><br>        <span class="hljs-string">&#x27;OrderID&#x27;</span> =&gt; <span class="hljs-number">0</span>, <span class="hljs-comment"># self.orderid = options[&#x27;OrderID&#x27;]</span><br>        <span class="hljs-string">&#x27;Require&#x27;</span> =&gt; &#123;&#125;, <span class="hljs-comment"># self.requiredids = options[&#x27;Require&#x27;]</span><br>      &#125;)<br>  <span class="hljs-keyword">end</span><br><br>  <span class="hljs-comment"># Fingerprint a single host</span><br>  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_host</span><span class="hljs-params">(ip)</span></span> <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods run_host ，not customizable function name.</span><br>    <span class="hljs-keyword">begin</span> <span class="hljs-comment">#function start</span><br>      connect <span class="hljs-comment">#use methods connect，will build a http connection ，use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods connect</span><br>      res = send_request_raw(&#123; <span class="hljs-string">&#x27;uri&#x27;</span> =&gt; <span class="hljs-string">&#x27;/&#x27;</span>, <span class="hljs-string">&#x27;method&#x27;</span> =&gt; <span class="hljs-string">&#x27;GET&#x27;</span> &#125;) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb methods send_request_raw</span><br>      fp = http_fingerprint(<span class="hljs-symbol">:response</span> =&gt; res) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/exploit/remote/http_client.rb methods http_fingerprint</span><br>      print_good(<span class="hljs-string">&quot;<span class="hljs-subst">#&#123;ip&#125;</span>:<span class="hljs-subst">#&#123;rport&#125;</span> <span class="hljs-subst">#&#123;fp&#125;</span>&quot;</span>) <span class="hljs-keyword">if</span> fp <span class="hljs-comment">#use ruby if modifier，will print if fp(http_fingerprint) had retrun，use methods rex(print_good)</span><br>      report_service(<span class="hljs-symbol">:host</span> =&gt; rhost, <span class="hljs-symbol">:port</span> =&gt; rport, <span class="hljs-symbol">:sname</span> =&gt; (ssl ? <span class="hljs-string">&#x27;https&#x27;</span> : <span class="hljs-string">&#x27;http&#x27;</span>), <span class="hljs-symbol">:info</span> =&gt; fp) <span class="hljs-comment">#use /opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/report.rb methods report_service to save report。</span><br>    <span class="hljs-keyword">rescue</span> <span class="hljs-symbol">:</span><span class="hljs-symbol">:Timeout</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:Error</span>, <span class="hljs-symbol">:</span><span class="hljs-symbol">:Errno</span><span class="hljs-symbol">:</span><span class="hljs-symbol">:EPIPE</span> <span class="hljs-comment">#Use the timeout module to handle exceptions and other errors in the case of module timeout.</span><br>    <span class="hljs-keyword">ensure</span> <span class="hljs-comment"># Regardless of whether there is an exception, execute next.</span><br>      disconnect <span class="hljs-comment">#use method disconnect ，disconnect http connection，use/opt/metasploit-framework/embedded/framework/lib/msf/core/auxiliary/scanner.rb methods disconnect</span><br>    <span class="hljs-keyword">end</span><br>  <span class="hljs-keyword">end</span><br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+              <hr>
+<h4 id="Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions"><a href="#Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions" class="headerlink" title="Backdoor.Win32.RemoteManipulator.brr Insecure Permissions"></a>Backdoor.Win32.RemoteManipulator.brr Insecure Permissions</h4><p>Backdoor.Win32.RemoteManipulator.brr malware suffers from an insecure permissions vulnerability.</p>
+<p>Exploit/PoC:</p>
+<figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">C</span>:\&gt;cacls C:\eaKVB<span class="hljs-number">87</span>.tmp<br><span class="hljs-attribute">C</span>:\eaKVB<span class="hljs-number">87</span>.tmp BUILTIN\Administrators:(OI)(CI)(ID)F<br>               <span class="hljs-attribute">NT</span> AUTHORITY\SYSTEM:(OI)(CI)(ID)F<br>               <span class="hljs-attribute">BUILTIN</span>\Users:(OI)(CI)(ID)R<br>               <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(ID)C<br>               <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(OI)(CI)(IO)(ID)C<br><br><br><br><span class="hljs-attribute">C</span>:\&gt;cacls C:\eaKVB<span class="hljs-number">87</span>.tmp\taskhosteo.exe<br><span class="hljs-attribute">C</span>:\eaKVB<span class="hljs-number">87</span>.tmp\taskhosteo.exe BUILTIN\Administrators:(ID)F<br>                              <span class="hljs-attribute">NT</span> AUTHORITY\SYSTEM:(ID)F<br>                              <span class="hljs-attribute">BUILTIN</span>\Users:(ID)R<br>                              <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(ID)C<br><br><span class="hljs-attribute">Directory</span> of c:\eaKVB<span class="hljs-number">87</span>.tmp<br><br><span class="hljs-attribute">03</span>/<span class="hljs-number">27</span>/<span class="hljs-number">2017</span>  <span class="hljs-number">01</span>:<span class="hljs-number">38</span> AM            <span class="hljs-number">42</span>,<span class="hljs-number">320</span> citoCavb.vbs<br><span class="hljs-attribute">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">2021</span>  <span class="hljs-number">08</span>:<span class="hljs-number">36</span> PM                 <span class="hljs-number">0</span> N<span class="hljs-number">0731337</span>.bak<br><span class="hljs-attribute">03</span>/<span class="hljs-number">21</span>/<span class="hljs-number">2017</span>  <span class="hljs-number">08</span>:<span class="hljs-number">11</span> PM         <span class="hljs-number">3</span>,<span class="hljs-number">968</span>,<span class="hljs-number">512</span> taskhosteo.exe<br><span class="hljs-attribute">09</span>/<span class="hljs-number">01</span>/<span class="hljs-number">2016</span>  <span class="hljs-number">07</span>:<span class="hljs-number">44</span> AM         <span class="hljs-number">1</span>,<span class="hljs-number">639</span>,<span class="hljs-number">336</span> vp<span class="hljs-number">8</span>encoder.dll<br></code></pre></div></td></tr></table></figure>
             </div>
             <hr>
             <div>
@@ -231,7 +233,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Note/">Note</a>
+                      <a class="hover-with-bg" href="/categories/Exploit/">Exploit</a>
                     
                   </div>
                 
@@ -239,7 +241,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Metasploit-Module/">Metasploit Module</a>
+                      <a class="hover-with-bg" href="/tags/Insecure-Permissions/">Insecure Permissions</a>
                     
                   </div>
                 
@@ -252,9 +254,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/">
+                      <a href="/2021/02/05/Car-Rental-Project-2-0-Shell-Upload/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Car Rental Project 2.0 Shell Upload</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -262,8 +264,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/30/Chamilo-LMS-1-11-14-Cross-Site-Scripting/">
-                        <span class="hidden-mobile">Chamilo LMS 1.11.14 Cross Site Scripting</span>
+                      <a href="/2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -289,7 +291,7 @@
           repo: 'chat',
           owner: 'FunPhishing',
           admin: ["FunPhishing"],
-          id: '83a4ad74297cac90f0cbcfa861f19872',
+          id: '39bcd3465687c24408a80fe343d1e559',
           language: 'zh-CN',
           labels: ["Gitalk"],
           perPage: 10,

