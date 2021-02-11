@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>VSCode install on kali</title>
+      <link href="2021/02/11/VScode-install-on-kali/"/>
+      <url>2021/02/11/VScode-install-on-kali/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="VSCode-install-on-kali"><a href="#VSCode-install-on-kali" class="headerlink" title="VSCode install on kali"></a>VSCode install on kali</h4><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">sudo apt update<br><br>sudo apt install curl gpg software-properties-common apt-transport-https<br><br>curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -<br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&quot;</span> | sudo tee /etc/apt/sources.list.d/vscode.list<br><br>sudo apt update<br><br>sudo apt install code<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Backdoor.Win32.Aphexdoor.LiteSock Buffer Overflow</title>
       <link href="2021/02/11/Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow/"/>
       <url>2021/02/11/Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow/</url>
